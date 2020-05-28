@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  list-style: none;
+  color: black;
+  font-family: "Roboto-Medium", Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+body {
+  user-select: none;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+img {
+  pointer-events: none;
+}
+
+
