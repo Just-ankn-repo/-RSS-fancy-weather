@@ -1,0 +1,49 @@
+.controls {
+  position: relative;
+  display: flex;
+  flex: 1.6;
+  padding-left: 9.5%;
+  align-items: center;
+}
+
+.update-background {
+  position: relative;
+  width: 55px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.change-lang {
+  position: relative;
+  width: 85px;
+  height: 50px;
+  border: 1px solid black;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.change-degrees {
+  position: relative;
+  width: 110px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.change-degrees > div {
+  width: 55px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+}
+
+.change-degrees > div:nth-child(1) {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.change-degrees > div:nth-child(2) {
+  border-radius: 0px 10px 10px 0px;
+}

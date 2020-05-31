@@ -1,0 +1,128 @@
+.weather {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 8.5;
+  padding-left: 9.5%;
+  padding-top: 2%;
+}
+
+.current__city {
+  font-size: 55px;
+  font-weight: bolder;
+}
+
+.current__datetime {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.current__date {
+  display: flex;
+  flex-direction: row;
+}
+
+.current__weekday {
+}
+
+.current__monthday {
+  margin-left: 10px;
+}
+
+.current__month {
+  margin-left: 10px;
+}
+
+.current__time {
+  margin-left: 30px;
+}
+
+.current__timezone {
+  margin-left: 10px;
+}
+
+.current__weather {
+  display: flex;
+  flex-direction: row;
+}
+
+.current__degrees {
+  position: relative;
+  margin-top: 20px;
+  font-size: 370px;
+  font-weight: 700;
+}
+
+.current__degrees > span {
+  position: relative;
+  font-size: 150px;
+  top: -160px;
+  left: 5px;
+}
+
+.current__additional {
+  margin-left: 35px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.current__weather-icon {
+  display: block;
+  width: 200px;
+  height: 180px;
+  border: 1px solid black;
+}
+
+.current__weather-overcast {
+  margin-top: 15px;
+}
+
+.current__weather-feels {
+  margin-top: 12px;
+}
+
+.current__weather-wind {
+  margin-top: 12px;
+}
+
+.current__weather-humidity {
+  margin-top: 12px;
+}
+
+.forecast__weather {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.weather__day {
+  display: flex;
+  flex-direction: column;
+}
+
+.day__title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.day__weather {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.day__degrees {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.day__weather-icon {
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 80px;
+  height: 50px;
+  border: 1px solid black;
+}

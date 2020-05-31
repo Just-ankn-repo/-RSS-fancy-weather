@@ -1,0 +1,35 @@
+.current__location-map {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 110px;
+  margin-top: 195px;
+  align-items: flex-end;
+}
+
+#map { 
+  position: relative;
+  width: 96%;
+  height: 480px;
+  pointer-events: none;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 90% 95%, 0 95%);
+  border-radius: 40px 40px 0px 0px;
+}
+
+.current__latitude {
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+.current__latitude > span {
+
+}
+
+.current__longtitude {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.current__longtitude > span {
+
+}
