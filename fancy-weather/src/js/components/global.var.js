@@ -3,6 +3,14 @@ export default class Vars {
     this.controller = controller;
     this.lang = 'en';
     this.units = 'C';
+    this.init();
+  }
+
+  init() {
+    const storedVars = this.controller.model.getLocalStorage();
+    this.lang = storedVars.lang !== null ? storedVars.lang : this.lang;
+    this.units = storedVars.units !== null ? storedVars.units : this.units;
+    this.controller.model.setLocalStorage({ lang: this.lang, units: this.units });
   }
 
   changeVars(vars) {

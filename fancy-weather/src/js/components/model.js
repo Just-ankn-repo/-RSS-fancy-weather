@@ -10,7 +10,6 @@ export default class Model {
     this.geocodingByCity = new apis.GeocodingByCity(this.controller.vars);
     this.cityByIP = new apis.CityByIP();
     this.localStorage = window.localStorage;
-    this.initLocalStorage();
   }
 
   async getWeatherByCity(query) {
@@ -53,16 +52,6 @@ export default class Model {
     }
   }
 
-  initLocalStorage() {
-    if (!this.localStorage.getItem('lang')) {
-      this.localStorage.setItem('lang', this.controller.vars.getVars.lang);
-    }
-    if (!this.localStorage.getItem('units')) {
-      this.localStorage.setItem('units', this.controller.vars.getVars.units);
-    }
-    this.controller.vars.changeVars(this.getLocalStorage());
-  }
-
   getLocalStorage() {
     const resLang = this.localStorage.getItem('lang');
     const resUnits = this.localStorage.getItem('units');
@@ -71,6 +60,6 @@ export default class Model {
 
   setLocalStorage(vars) {
     if (vars.lang) this.localStorage.setItem('lang', vars.lang);
-    if (vars.units) this.localStorage.setItem('lang', vars.units);
+    if (vars.units) this.localStorage.setItem('units', vars.units);
   }
 }
