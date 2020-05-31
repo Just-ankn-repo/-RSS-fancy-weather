@@ -3,7 +3,7 @@ export default (geodata, weather) => ({
   country: geodata.country,
   lat: geodata.location.lat,
   lon: geodata.location.lng,
-  timezone: weather.timezone_offset,
+  timezone: geodata.timezone,
   currentWeather: weather.current,
   forecastWeather: weather.daily,
 });

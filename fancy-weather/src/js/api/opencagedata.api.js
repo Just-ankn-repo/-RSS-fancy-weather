@@ -17,6 +17,7 @@ export default class GeocodingByCity {
       city: result.results[0].components.city,
       country: result.results[0].components.country,
       location: result.results[0].geometry,
+      timezone: result.results[0].annotations.timezone.name,
     };
   }
 
