@@ -7,7 +7,7 @@ export default class Model {
   constructor(controller) {
     this.controller = controller;
     this.weather = new apis.Weather();
-    this.geocodingByCity = new apis.GeocodingByCity(this.controller.vars);
+    this.geocodingByCity = new apis.GeocodingByCity(controller);
     this.cityByIP = new apis.CityByIP();
     this.localStorage = window.localStorage;
   }
@@ -34,18 +34,18 @@ export default class Model {
   async getWeather(city) {
     if (city) {
       const weatherData = await this.getWeatherByCity(city);
-      this.controller.updateWeatherOnUI(weatherData);
+      this.controller.updateUI(weatherData);
     } else {
       const success = async (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         const weatherData = await this.getWeatherByGeolocation(lat, lon);
-        this.controller.updateWeatherOnUI(weatherData);
+        this.controller.updateUI(weatherData);
       };
 
       const error = async () => {
         const weatherData = await this.getWeatherByIP();
-        this.controller.updateWeatherOnUI(weatherData);
+        this.controller.updateUI(weatherData);
       };
 
       navigator.geolocation.getCurrentPosition(success, error);

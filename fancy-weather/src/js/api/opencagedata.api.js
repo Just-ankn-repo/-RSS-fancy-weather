@@ -2,14 +2,14 @@
 import config from '../../config/env.config';
 
 export default class GeocodingByCity {
-  constructor(vars) {
+  constructor(controller) {
     this.apiUrl = config.opencageUrl;
     this.apiToken = config.opencageToken;
-    this.vars = vars;
+    this.controller = controller;
   }
 
   async getCoordinates(query) {
-    const { lang } = this.vars.getVars;
+    const { lang } = this.controller.vars.getVars();
     const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
       pretty=1&language=${lang}`);
     const result = await response.json();
@@ -21,7 +21,7 @@ export default class GeocodingByCity {
   }
 
   async getCity(query) {
-    const { lang } = this.vars.getVars;
+    const { lang } = this.controller.vars.getVars();
     const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
       pretty=1&language=${lang}`);
     const result = await response.json();
