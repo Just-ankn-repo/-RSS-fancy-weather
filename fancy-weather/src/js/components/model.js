@@ -6,7 +6,7 @@ import utils from '../utils/index';
 export default class Model {
   constructor(controller) {
     this.controller = controller;
-    this.weather = new apis.Weather();
+    this.weather = new apis.Weather(controller);
     this.geocodingByCity = new apis.GeocodingByCity(controller);
     this.cityByIP = new apis.CityByIP();
     this.localStorage = window.localStorage;

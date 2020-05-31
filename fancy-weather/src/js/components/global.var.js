@@ -1,8 +1,8 @@
 export default class Vars {
   constructor(controller) {
     this.controller = controller;
-    this.lang = 'en';
-    this.units = 'C';
+    this.lang = 'en'; /* ru, be */
+    this.units = 'metric'; /* imperial */
     this.init();
   }
 
