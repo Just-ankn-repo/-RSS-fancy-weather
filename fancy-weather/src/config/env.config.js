@@ -6,6 +6,6 @@ export default {
   mapboxToken: 'pk.eyJ1IjoianVzdC1hbmtuIiwiYSI6ImNrYXRnbXN0MjA1eWsycnBnYWxkamwwcGQifQ.13aDpx4cow2eOHJNSv-AFg',
   opencageUrl: 'https://api.opencagedata.com',
   opencageToken: '18d112357b7a47869537fad597523524',
-  ipstackUrl: 'http://api.ipstack.com',
-  ipstackToken: 'af523bfb0479f9d049d74b40d4b23bda',
+  ipgeolocationUrl: 'https://api.ipgeolocation.io',
+  ipgeolocationToken: 'de3c5796202e4df88b3cae769fbd50b1',
 };
