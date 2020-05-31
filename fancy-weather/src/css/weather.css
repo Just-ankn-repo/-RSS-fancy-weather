@@ -52,11 +52,11 @@
 .current__degrees {
   position: relative;
   margin-top: 20px;
-  font-size: 370px;
+  font-size: 400px;
   font-weight: 700;
 }
 
-.current__degrees > span {
+.current__degrees > span > span{
   position: relative;
   font-size: 150px;
   top: -160px;
@@ -65,19 +65,17 @@
 
 .current__additional {
   margin-left: 35px;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 40px;
 }
 
 .current__weather-icon {
   display: block;
   width: 200px;
-  height: 180px;
-  border: 1px solid black;
+  height: auto;
 }
 
-.current__weather-overcast {
-  margin-top: 15px;
+.current__weather-description {
+  
 }
 
 .current__weather-feels {
@@ -101,6 +99,7 @@
 .weather__day {
   display: flex;
   flex-direction: column;
+  margin-right: 30px;
 }
 
 .day__title {
@@ -120,9 +119,6 @@
 }
 
 .day__weather-icon {
-  margin-left: 15px;
-  margin-top: 10px;
-  width: 80px;
-  height: 50px;
-  border: 1px solid black;
+  width: 100px;
+  height: auto;
 }

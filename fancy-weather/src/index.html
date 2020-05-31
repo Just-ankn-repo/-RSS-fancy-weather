@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <title>Fancy Weather</title>
     <!-- <link rel="shortcut icon" type="image/png" href="/assets/img/weather-icon.png"> -->
     <link rel="stylesheet" href="style.css" />
@@ -28,32 +29,46 @@
           </div>
         </div>
         <div class="weather">
-          <div class="current__city">TOLIATTY, RUSSIA</div>
+          <div class="current__city"></div>
           <div class="current__datetime">
             <div class="current__date">
-              <div class="current__weekday">Mon</div>
-              <div class="current__monthday">25</div>
-              <div class="current__month">October</div>
+              <div class="current__weekday"></div>
+              <div class="current__monthday"></div>
+              <div class="current__month"></div>
             </div>
-            <div class="current__time">09:54:34</div>
-            <div class="current__timezone">UTC+4</div>
+            <div class="current__time"></div>
+            <div class="current__timezone"></div>
           </div>
           <div class="current__weather">
-            <div class="current__degrees">10<span>&deg;</span></div>
+            <div class="current__degrees"><span></span><span>&deg;</span></div>
             <div class="current__additional">
-              <div class="current__weather-icon"></div>
-              <div class="current__weather-overcast">OVERCAST</div>
-              <div class="current__weather-feels">FEELS LIKE: <span>7</span><span>&deg;</span></div>
-              <div class="current__weather-wind">WIND: <span>2 m/s</span></div>
-              <div class="current__weather-humidity">HUMIDITY: <span>83%</span></div>
+              <img class="current__weather-icon"></img>
+              <div class="current__weather-description"></div>
+              <div class="current__weather-feels">ощущается как: <span></span><span>&deg;</span></div>
+              <div class="current__weather-wind">ветер: <span></span></div>
+              <div class="current__weather-humidity">влажность: <span></span></div>
             </div>
           </div>
           <div class="forecast__weather">
             <div class="weather__day">
-              <div class="day__title">TUESDAY</div>
+              <div class="day__title first-forecast-day-title"></div>
               <div class="day__weather">
-                <div class="day__degrees">7<span>&deg;</span></div>
-                <div class="day__weather-icon"></div>
+                <div class="day__degrees first-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <img class="day__weather-icon first-forecast-day-icon"></img>
+              </div>
+            </div>
+            <div class="weather__day">
+              <div class="day__title second-forecast-day-title"></div>
+              <div class="day__weather">
+                <div class="day__degrees second-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <img class="day__weather-icon second-forecast-day-icon"></img>
+              </div>
+            </div>
+            <div class="weather__day">
+              <div class="day__title third-forecast-day-title"></div>
+              <div class="day__weather">
+                <div class="day__degrees third-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <img class="day__weather-icon third-forecast-day-icon"></img>
               </div>
             </div>
           </div>
@@ -69,8 +84,8 @@
         </div>
         <div class="current__location-map">
           <div id="map"></div>
-          <div class="current__latitude">Latitude: <span>12&deg;32'</span></div>
-          <div class="current__longtitude">Longtitude: <span>12&deg;32'</span></div>
+          <div class="current__latitude">Latitude: <span></span></div>
+          <div class="current__longtitude">Longtitude: <span></span></div>
         </div>
       </section>
     </main>
