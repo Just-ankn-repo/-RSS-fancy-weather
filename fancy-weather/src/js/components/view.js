@@ -17,5 +17,6 @@ export default class View {
   async render(data) {
     console.log(data);
     this.map.updateMap(data.lon, data.lat);
+    viewUtils.fillWeatherData(data);
   }
 }
