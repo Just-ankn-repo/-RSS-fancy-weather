@@ -2,20 +2,28 @@
 
 import apis from '../api/index';
 import utils from '../utils/index';
+import Vars from './global.var';
 
 export default class Model {
   constructor(controller) {
     this.controller = controller;
-    this.weather = new apis.Weather(controller);
-    this.geocodingByCity = new apis.GeocodingByCity(controller);
-    this.cityByIP = new apis.CityByIP();
     this.localStorage = window.localStorage;
+    this.vars = new Vars(this);
+    this.weather = new apis.Weather(this.vars);
+    this.geocodingByCity = new apis.GeocodingByCity(this.vars);
+    this.cityByIP = new apis.CityByIP();
+    this.unsplash = new apis.Unsplash();
   }
 
   async getWeatherByCity(query) {
     const geoData = await this.geocodingByCity.getCoordinates(query);
     const weather = await this.weather.getWeather(geoData.location.lat, geoData.location.lng);
-    const weatherData = utils.combineWeatherData(geoData, weather);
+    let weatherData = utils.combineWeatherData(geoData, weather);
+    const vars = this.vars.getVars();
+    const date = utils.getDate(vars.lang, weatherData.timezone);
+    weatherData = Object.assign(weatherData, vars, date);
+    const imageQuery = `${weatherData.season} ${weatherData.currentWeather.weather}`;
+    weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
     return weatherData;
   }
 

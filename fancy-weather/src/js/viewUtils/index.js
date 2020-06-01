@@ -1,12 +1,10 @@
-import fillWeatherData from './fillWeatherData';
-import fillDateTime from './fillDateTime';
+import renderDataOnPage from './renderDataOnPage';
 import Map from './mapbox';
 import constants from './constants';
 
 
 export default {
-  fillWeatherData,
-  fillDateTime,
+  renderDataOnPage,
   Map,
   constants,
 };

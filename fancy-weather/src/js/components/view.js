@@ -16,9 +16,7 @@ export default class View {
 
   async render(data) {
     console.log(data);
-    const vars = this.controller.vars.getVars();
     this.map.updateMap(data.lon, data.lat);
-    viewUtils.fillWeatherData(data);
-    viewUtils.fillDateTime(data, vars.lang);
+    viewUtils.renderDataOnPage(data);
   }
 }

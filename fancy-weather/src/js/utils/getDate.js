@@ -17,16 +17,37 @@ const months = {
   be: ['Студзеня', 'Лютага', 'Сакавіка', 'Красавіка', 'Мая', 'Чэрвеня', 'Ліпеня', 'Жніўня', 'Верасня', 'Кастрычніка', 'Лістапада', 'Снежня'],
 };
 
-export default (lang, length, timezone, dayOffset) => {
+const seasons = ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter'];
+
+const checkWeekDay = (weekDay, offset) => (weekDay + offset > 6 ? weekDay - 7 : weekDay + offset);
+
+export default (lang, timezone) => {
   const date = new Date(new Date().toLocaleString('en-US', { timeZone: timezone }));
-  const getWeekDay = weekDays[length][lang][date.getDay() + (dayOffset || 0)];
+  const rawWeekDay = date.getDay();
+  const getWeekDay = weekDays.short[lang][rawWeekDay];
+  const getCurrentWeekDay = weekDays.full[lang][rawWeekDay];
+  const getFirstWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 1)];
+  const getSecondWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 2)];
+  const getThirdWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 3)];
   const getDay = date.getDate();
   const getMonth = months[lang][date.getMonth()];
-  const getTimeZoneOffset = date.getTimezoneOffset();
+  const getHours = date.getHours();
+  const getMinutes = date.getMinutes();
+  const getSeconds = date.getSeconds();
+  const getSeason = seasons[date.getMonth()];
   return {
     weekDay: getWeekDay,
     day: getDay,
     month: getMonth,
-    timezone: getTimeZoneOffset,
+    currentWeekDay: getCurrentWeekDay,
+    firstWeekDay: getFirstWeekDay,
+    secondWeekDay: getSecondWeekDay,
+    thirdWeekDay: getThirdWeekDay,
+    season: getSeason,
+    time: {
+      hours: getHours,
+      minutes: getMinutes,
+      seconds: getSeconds,
+    },
   };
 };
