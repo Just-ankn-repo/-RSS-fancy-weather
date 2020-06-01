@@ -1,5 +1,6 @@
 /* global fetch */
 import config from '../../config/env.config';
+import getPlace from '../utils/getPlace';
 
 export default class GeocodingByCity {
   constructor(vars) {
@@ -13,9 +14,10 @@ export default class GeocodingByCity {
     const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
       pretty=1&language=${lang}`);
     const result = await response.json();
+    const tempLocation = getPlace(result.results[0].components);
     return {
-      city: result.results[0].components.city,
-      country: result.results[0].components.country,
+      city: tempLocation.city,
+      country: tempLocation.country,
       location: result.results[0].geometry,
       timezone: result.results[0].annotations.timezone.name,
     };
@@ -26,6 +28,7 @@ export default class GeocodingByCity {
     const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
       pretty=1&language=${lang}`);
     const result = await response.json();
-    return `${result.results[0].components.city}, ${result.results[0].components.country}`;
+    const tempLocation = getPlace(result.results[0].components);
+    return `${tempLocation.city}, ${tempLocation.country}`;
   }
 }
