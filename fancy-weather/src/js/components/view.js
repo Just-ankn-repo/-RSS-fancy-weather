@@ -1,5 +1,3 @@
-/* global document */
-
 import '../../css/style.css';
 import '../../css/controls.css';
 import '../../css/map.css';
@@ -16,7 +14,10 @@ export default class View {
 
   async render(data) {
     console.log(data);
-    this.map.updateMap(data.lon, data.lat);
     viewUtils.renderDataOnPage(data);
+    viewUtils.constants.backgroundImage
+      .parentNode.replaceChild(data.backgroundImage, viewUtils.constants.backgroundImage);
+    this.map.updateMap(data.lon, data.lat);
+    viewUtils.constants.pageLoader.style.display = 'none';
   }
 }
