@@ -7,11 +7,11 @@ export default class Controller {
     this.view = new View(this);
   }
 
-  async init() {
-    this.model.getWeather();
+  updateData(city) {
+    this.model.getWeather(city);
   }
 
-  async updateUI(data) {
+  updateUI(data) {
     this.view.render(data);
   }
 }
