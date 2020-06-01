@@ -18,11 +18,11 @@
       <section class="section__left">
         <div class="controls">
           <div class="update-background"></div>
-          <div class="change-lang">
-            <div id="lang-en"></div>
-            <div id="lang-ru"></div>
-            <div id="lang-by"></div>
-          </div>
+          <select class="change-lang">
+            <option id="lang-en">EN</option>
+            <option id="lang-ru">RU</option>
+            <option id="lang-be">BE</option>
+          </select>
           <div class="change-degrees">
             <div id="farengate">&#8457;</div>
             <div id="celsius">&#8451;</div>
@@ -76,10 +76,10 @@
       </section>
       <section class="section__right">
         <div class="search__city">
-          <form action="" class="search">
+          <form class="search">
             <input class="search-input" type="search" placeholder="Search city" autocomplete="off" autofill="off" spellcheck="false"></input>
             <!-- <div class="microphone-button"></div> -->
-            <div class="search-button">SEARCH</div>
+            <button class="search-button">SEARCH</button>
           </form>
         </div>
         <div class="current__location-map">

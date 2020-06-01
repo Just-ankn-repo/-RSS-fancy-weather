@@ -1,7 +1,5 @@
-import $onSearch from './onSearch';
-import $onKeyboard from './onKeyboard';
+import onSearch from './onSearch';
 
 export default {
-  $onSearch,
-  $onKeyboard,
+  onSearch,
 };

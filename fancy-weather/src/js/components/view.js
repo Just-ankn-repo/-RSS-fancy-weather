@@ -4,7 +4,7 @@ import '../../css/map.css';
 import '../../css/search.css';
 import '../../css/weather.css';
 import viewUtils from '../viewUtils/index';
-// import handlers from '../handlers/index';
+import handlers from '../handlers/index';
 
 export default class View {
   constructor(controller) {
@@ -19,5 +19,6 @@ export default class View {
       .parentNode.replaceChild(data.backgroundImage, viewUtils.constants.backgroundImage);
     this.map.updateMap(data.lon, data.lat);
     viewUtils.constants.pageLoader.style.display = 'none';
+    handlers.onSearch(this.controller);
   }
 }
