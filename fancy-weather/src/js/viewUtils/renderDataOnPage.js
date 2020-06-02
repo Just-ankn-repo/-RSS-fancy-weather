@@ -1,12 +1,10 @@
 import constants from './constants';
-import clock from './clock';
 
 export default (data) => {
   constants.currentCity.textContent = `${data.city}, ${data.country}`;
   constants.currentWeekDay.textContent = data.weekDay;
   constants.currentDay.textContent = data.day;
   constants.currentMonth.textContent = data.month;
-  constants.currentTime.textContent = `${data.time.hours}:${data.time.minutes}:${data.time.seconds}`;
   constants.currentTimezone.textContent = data.timezoneOffset;
   constants.currentWeatherIcon.src = `https://openweathermap.org/img/wn/${data.currentWeather.icon}@2x.png`;
   constants.currentWeatherDesc.textContent = data.currentWeather.description;

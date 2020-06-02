@@ -34,9 +34,6 @@ export default (lang, timezone, hemisphere) => {
   const getThirdWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 3)];
   const getDay = date.getDate();
   const getMonth = months[lang][date.getMonth()];
-  const getHours = date.getHours();
-  const getMinutes = date.getMinutes();
-  const getSeconds = date.getSeconds();
   const getSeason = seasons[hemisphere][date.getMonth()];
   return {
     weekDay: getWeekDay,
@@ -47,10 +44,5 @@ export default (lang, timezone, hemisphere) => {
     secondWeekDay: getSecondWeekDay,
     thirdWeekDay: getThirdWeekDay,
     season: getSeason,
-    time: {
-      hours: getHours,
-      minutes: getMinutes,
-      seconds: getSeconds,
-    },
   };
 };

@@ -12,6 +12,7 @@ export default class View {
   constructor(controller) {
     this.controller = controller;
     this.map = new viewUtils.Map();
+    this.clock = new viewUtils.Clock(viewUtils.constants.currentTime);
     this.init();
   }
 
@@ -26,6 +27,7 @@ export default class View {
       .parentNode.replaceChild(data.backgroundImage, viewUtils.constants.backgroundImage);
     viewUtils.constants.backgroundImage = document.querySelector('.background-image');
     this.map.updateMap(data.lon, data.lat);
+    this.clock.updateTime(data.timezone);
     viewUtils.constants.pageLoader.style.display = 'none';
   }
 }
