@@ -14,6 +14,7 @@ export default class Weather {
     exclude=current,daily&lang=${lang}&units=${units}&appid=${this.apiToken}`);
     const result = await response.json();
     result.units = units;
+
     return result;
   }
 }

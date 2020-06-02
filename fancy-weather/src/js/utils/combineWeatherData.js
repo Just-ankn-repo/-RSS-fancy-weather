@@ -4,7 +4,7 @@ export default (geodata, weather) => ({
   lat: geodata.location.lat,
   lon: geodata.location.lng,
   timezone: geodata.timezone,
-  timezoneOffset: `UTC${weather.timezone_offset < 0 ? '-' : '+'}${weather.timezone_offset / 3600}`,
+  timezoneOffset: `UTC${weather.timezone_offset < 0 ? '' : '+'}${weather.timezone_offset / 3600}`,
   currentWeather: {
     temp: Math.round(weather.current.temp),
     feelsLike: Math.round(weather.current.feels_like),
