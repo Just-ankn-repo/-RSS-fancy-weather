@@ -1,5 +1,3 @@
-/* global document */
-
 import '../../css/style.css';
 import '../../css/controls.css';
 import '../../css/map.css';
@@ -13,21 +11,20 @@ export default class View {
     this.controller = controller;
     this.map = new viewUtils.Map();
     this.clock = new viewUtils.Clock(viewUtils.constants.currentTime);
-    this.init();
-  }
-
-  init() {
-    handlers.onSearch(this.controller);
   }
 
   render(data) {
     console.log(data);
     viewUtils.renderDataOnPage(data);
-    viewUtils.constants.backgroundImage
-      .parentNode.replaceChild(data.backgroundImage, viewUtils.constants.backgroundImage);
-    viewUtils.constants.backgroundImage = document.querySelector('.background-image');
+    viewUtils.updateBackground(data.backgroundImage);
     this.map.updateMap(data.lon, data.lat);
     this.clock.updateTime(data.timezone);
+    handlers.setAllHandlers(this.controller, this, data.units, data.lang);
     viewUtils.constants.pageLoader.style.display = 'none';
+  }
+
+  updateBackground(image) {
+    viewUtils.updateBackground(image);
+    handlers.onBackgroundUpdate(this.controller, this);
   }
 }

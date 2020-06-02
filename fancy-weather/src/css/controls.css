@@ -8,22 +8,38 @@
 
 .update-background {
   position: relative;
+  cursor: pointer;
   width: 55px;
   height: 50px;
-  border: 1px solid black;
+  background-color: black;
+  opacity: 0.8;
   border-radius: 10px;
+}
+
+.update-background:active {
+  transform: scale(0.9);
+}
+
+.update-background.lock {
+  cursor: default;
+}
+
+.update-background.lock:active {
+  transform: none;
 }
 
 .change-lang {
   position: relative;
   width: 85px;
   height: 50px;
-  border: 1px solid black;
+  background-color: black;
+  opacity: 0.8;
   margin-left: 10px;
   border-radius: 10px;
+  padding: 0px 15px;
 }
 
-.change-degrees {
+.change-units {
   position: relative;
   width: 110px;
   height: 50px;
@@ -32,18 +48,51 @@
   margin-left: 10px;
 }
 
-.change-degrees > div {
+.change-units > div {
   width: 55px;
   height: 50px;
-  border: 1px solid black;
   text-align: center;
   line-height: 50px;
 }
 
-.change-degrees > div:nth-child(1) {
+#imperial {
+  cursor: pointer;
   border-radius: 10px 0px 0px 10px;
+  background-color: black;
+  opacity: 0.8;
 }
 
-.change-degrees > div:nth-child(2) {
+#metric {
+  cursor: pointer;
   border-radius: 0px 10px 10px 0px;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#imperial.active {
+  cursor: default;
+  background-color: rgb(87, 87, 87);
+  opacity: 1;
+}
+
+#imperial:active {
+  transform: scale(0.9);
+}
+
+#imperial.active:active {
+  transform: none;
+}
+
+#metric.active {
+  cursor: default;
+  background-color: rgb(87, 87, 87);
+  opacity: 1;
+}
+
+#metric:active {
+  transform: scale(0.9);
+}
+
+#metric.active:active {
+  transform: none;
 }

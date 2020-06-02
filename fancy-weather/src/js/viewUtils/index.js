@@ -2,6 +2,7 @@ import renderDataOnPage from './renderDataOnPage';
 import Map from './mapbox';
 import constants from './constants';
 import Clock from './clock';
+import updateBackground from './updateBackground';
 
 
 export default {
@@ -9,4 +10,5 @@ export default {
   Map,
   constants,
   Clock,
+  updateBackground,
 };

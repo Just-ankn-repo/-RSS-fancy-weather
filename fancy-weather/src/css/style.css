@@ -17,6 +17,12 @@
   letter-spacing: 0.3px;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 img {
   pointer-events: none;
 }
@@ -69,7 +75,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: black;
   z-index: 999;
 }
 

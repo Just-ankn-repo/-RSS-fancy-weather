@@ -17,7 +17,7 @@ export default class Vars {
     this.lang = vars.lang || this.lang;
     this.units = vars.units || this.units;
     this.model.setLocalStorage({ lang: this.lang, units: this.units });
-    this.updateUI();
+    this.model.getWeather(null);
   }
 
   getVars() {

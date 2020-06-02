@@ -13,6 +13,7 @@ export default class Model {
     this.geocodingByCity = new apis.GeocodingByCity(this.vars);
     this.cityByIP = new apis.CityByIP();
     this.unsplash = new apis.Unsplash();
+    this.lastQuery = '';
   }
 
   async getWeatherByCity(query) {
@@ -25,6 +26,7 @@ export default class Model {
     weatherData = Object.assign(weatherData, vars, date);
     const imageQuery = `${weatherData.season} ${weatherData.currentWeather.weather}`;
     weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
+    this.lastQuery = query;
     return weatherData;
   }
 
@@ -41,8 +43,9 @@ export default class Model {
   }
 
   async getWeather(city) {
-    if (city) {
-      const weatherData = await this.getWeatherByCity(city);
+    const query = city && city !== null ? city : city || this.lastQuery;
+    if (query) {
+      const weatherData = await this.getWeatherByCity(query);
       this.controller.updateUI(weatherData);
     } else {
       const success = async (position) => {
