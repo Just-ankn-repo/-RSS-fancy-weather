@@ -1,12 +1,20 @@
 /* global document */
 export default ({
+  feelsLikeText: document.querySelector('.current__weather-feels > span:nth-child(1)'),
+  windText: document.querySelector('.current__weather-wind > span:nth-child(1)'),
+  humidityText: document.querySelector('.current__weather-humidity > span:nth-child(1)'),
+  searchInputText: document.querySelector('.search-input'),
+  searchButtonText: document.querySelector('.search-button'),
+  latitudeText: document.querySelector('.current__latitude > span:nth-child(1)'),
+  longitudeText: document.querySelector('.current__longtitude > span:nth-child(1)'),
+
   currentCity: document.querySelector('.current__city'),
   currentDegrees: document.querySelector('.current__degrees > span'),
   currentWeatherIcon: document.querySelector('.current__weather-icon'),
   currentWeatherDesc: document.querySelector('.current__weather-description'),
-  currentFeelsLike: document.querySelector('.current__weather-feels > span'),
-  currentWind: document.querySelector('.current__weather-wind > span'),
-  currentHumidity: document.querySelector('.current__weather-humidity > span'),
+  currentFeelsLike: document.querySelector('.current__weather-feels > span:nth-child(2)'),
+  currentWind: document.querySelector('.current__weather-wind > span:nth-child(2)'),
+  currentHumidity: document.querySelector('.current__weather-humidity > span:nth-child(2)'),
 
   firstDayTitle: document.querySelector('.first-forecast-day-title'),
   firstDayDegrees: document.querySelector('.first-forecast-day-degrees > span'),

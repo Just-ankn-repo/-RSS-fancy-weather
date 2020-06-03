@@ -5,8 +5,8 @@ import config from '../../config/env.config';
 
 export default class Map {
   constructor() {
-    this.lonElement = document.querySelector('.current__latitude > span');
-    this.latElement = document.querySelector('.current__longtitude > span');
+    this.lonElement = document.querySelector('.current__latitude > span:nth-child(2)');
+    this.latElement = document.querySelector('.current__longtitude > span:nth-child(2)');
     this.mapboxgl = mapboxgl;
     this.mapboxgl.accessToken = config.mapboxToken;
     this.map = new mapboxgl.Map({

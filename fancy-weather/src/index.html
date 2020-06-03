@@ -22,9 +22,9 @@
         <div class="controls">
           <div class="update-background default-button"><div></div></div>
           <select class="change-lang">
-            <option id="lang-en">EN</option>
-            <option id="lang-ru">RU</option>
-            <option id="lang-be">BE</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="be">BE</option>
           </select>
           <div class="change-units">
             <div id="imperial">&#8457;</div>
@@ -50,9 +50,9 @@
             <div class="current__additional">
               <img class="current__weather-icon"></img>
               <div class="current__weather-description"></div>
-              <div class="current__weather-feels">ощущается как: <span></span><span>&deg;</span></div>
-              <div class="current__weather-wind">ветер: <span></span></div>
-              <div class="current__weather-humidity">влажность: <span></span></div>
+              <div class="current__weather-feels"><span></span><span></span><span>&deg;</span></div>
+              <div class="current__weather-wind"><span></span><span></span></div>
+              <div class="current__weather-humidity"><span></span><span></span></div>
             </div>
           </div>
           <div class="forecast__weather">
@@ -83,15 +83,15 @@
       <section class="section__right">
         <div class="search__city">
           <form class="search-form">
-            <input class="search-input" type="search" placeholder="Search city" autocomplete="off" autofill="off" spellcheck="false"></input>
+            <input class="search-input" type="search" placeholder="" autocomplete="off" autofill="off" spellcheck="false"></input>
             <!-- <div class="microphone-button"></div> -->
-            <button class="search-button">SEARCH</button>
+            <button class="search-button"></button>
           </form>
         </div>
         <div class="current__location-map">
           <div id="map"></div>
-          <div class="current__latitude">Latitude: <span></span></div>
-          <div class="current__longtitude">Longtitude: <span></span></div>
+          <div class="current__latitude"><span></span><span></span></div>
+          <div class="current__longtitude"><span></span><span></span></div>
         </div>
       </section>
     </main>

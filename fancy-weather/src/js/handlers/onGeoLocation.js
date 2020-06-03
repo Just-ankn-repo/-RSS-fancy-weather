@@ -4,6 +4,7 @@ import constants from './constants';
 
 export default (controller) => {
   const findGeolocationButton = () => {
+    constants.queryLoader.style.display = 'block';
     constants.findGeolocationButton.removeEventListener('click', findGeolocationButton);
     constants.findGeolocationButton.setAttribute('findGeolocationButton-findByGeo-click', 'false');
     constants.findGeolocationButton.classList.add('active');

@@ -1,6 +1,14 @@
 import constants from './constants';
+import i18n from '../i18n/index';
 
 export default (data) => {
+  constants.feelsLikeText.textContent = i18n[data.lang].feelsLike;
+  constants.windText.textContent = i18n[data.lang].wind;
+  constants.humidityText.textContent = i18n[data.lang].humidity;
+  constants.searchInputText.placeholder = i18n[data.lang].searchInputText;
+  constants.searchButtonText.textContent = i18n[data.lang].searchButtonText;
+  constants.latitudeText.textContent = i18n[data.lang].latitudeText;
+  constants.longitudeText.textContent = i18n[data.lang].longitudeText;
   constants.currentCity.textContent = `${data.city}, ${data.country}`;
   constants.currentWeekDay.textContent = data.weekDay;
   constants.currentDay.textContent = data.day;

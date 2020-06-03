@@ -8,7 +8,10 @@ export default (controller, view, units, lang) => {
   handlers.onWeatherSpeech(controller);
 
   if (units) handlers.onUnitsChange(controller, units);
-  if (lang) handlers.onLangChange(controller, lang);
+  if (lang) {
+    handlers.onLangChange(controller, lang);
+    handlers.constants.changeLangSellector.value = lang;
+  }
 
   handlers.constants.queryLoader.style.display = 'none';
   handlers.constants.pageLoader.style.display = 'none';
