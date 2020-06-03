@@ -24,7 +24,7 @@ export default class Model {
     const hemisphere = weatherData.lat < 0 ? 'south' : 'north';
     const date = utils.getDate(vars.lang, weatherData.timezone, hemisphere);
     weatherData = Object.assign(weatherData, vars, date);
-    const imageQuery = `${weatherData.season} ${weatherData.currentWeather.weather}`;
+    const imageQuery = `${weatherData.dayTime} ${weatherData.season} ${weatherData.currentWeather.weather}`;
     weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
     this.lastQuery = city;
     return weatherData;

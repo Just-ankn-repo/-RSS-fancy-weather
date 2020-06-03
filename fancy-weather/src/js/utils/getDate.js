@@ -22,6 +22,8 @@ const seasons = {
   south: ['summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter', 'winter', 'winter', 'spring', 'spring', 'spring', 'summer'],
 };
 
+const dayTimes = ['', 'night', 'morning', 'day', 'evening'];
+
 const checkWeekDay = (day, i) => (day + i > 6 ? day + i - 7 : day + i);
 
 export default (lang, timezone, hemisphere) => {
@@ -33,8 +35,10 @@ export default (lang, timezone, hemisphere) => {
   const getSecondWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 2)];
   const getThirdWeekDay = weekDays.full[lang][checkWeekDay(rawWeekDay, 3)];
   const getDay = date.getDate();
+  const getHours = date.getHours();
   const getMonth = months[lang][date.getMonth()];
   const getSeason = seasons[hemisphere][date.getMonth()];
+  const getDayTime = dayTimes[Math.ceil(getHours / 6)];
   return {
     weekDay: getWeekDay,
     day: getDay,
@@ -44,5 +48,6 @@ export default (lang, timezone, hemisphere) => {
     secondWeekDay: getSecondWeekDay,
     thirdWeekDay: getThirdWeekDay,
     season: getSeason,
+    dayTime: getDayTime,
   };
 };
