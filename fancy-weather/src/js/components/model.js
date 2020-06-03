@@ -16,8 +16,8 @@ export default class Model {
     this.lastQuery = '';
   }
 
-  async getWeatherByCity(query) {
-    const geoData = await this.geocodingByCity.getCoordinates(query);
+  async getWeatherByCity(city) {
+    const geoData = await this.geocodingByCity.getCoordinates(city);
     const weather = await this.weather.getWeather(geoData.location.lat, geoData.location.lng);
     let weatherData = utils.combineWeatherData(geoData, weather);
     const vars = this.vars.getVars();
@@ -26,7 +26,7 @@ export default class Model {
     weatherData = Object.assign(weatherData, vars, date);
     const imageQuery = `${weatherData.season} ${weatherData.currentWeather.weather}`;
     weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
-    this.lastQuery = query;
+    this.lastQuery = city;
     return weatherData;
   }
 
@@ -43,11 +43,11 @@ export default class Model {
   }
 
   async getWeather(city) {
-    const query = city && city !== null ? city : city || this.lastQuery;
-    if (query) {
+    const query = city || this.lastQuery;
+    if (city || city === null) {
       const weatherData = await this.getWeatherByCity(query);
       this.controller.updateUI(weatherData);
-    } else {
+    } else if (!city) {
       const success = async (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;

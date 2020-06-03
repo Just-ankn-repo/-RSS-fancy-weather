@@ -4,7 +4,7 @@ import '../../css/map.css';
 import '../../css/search.css';
 import '../../css/weather.css';
 import viewUtils from '../viewUtils/index';
-import handlers from '../handlers/index';
+import setAllHandlers from '../handlers/setAllHandlers';
 
 export default class View {
   constructor(controller) {
@@ -19,12 +19,11 @@ export default class View {
     viewUtils.updateBackground(data.backgroundImage);
     this.map.updateMap(data.lon, data.lat);
     this.clock.updateTime(data.timezone);
-    handlers.setAllHandlers(this.controller, this, data.units, data.lang);
-    viewUtils.constants.pageLoader.style.display = 'none';
+    setAllHandlers(this.controller, this, data.units, data.lang);
   }
 
   updateBackground(image) {
     viewUtils.updateBackground(image);
-    handlers.onBackgroundUpdate(this.controller, this);
+    setAllHandlers(this.controller, this);
   }
 }

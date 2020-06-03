@@ -3,6 +3,8 @@ import constants from './constants';
 
 export default (controller, view) => {
   const update = async () => {
+    constants.queryLoader.style.display = 'block';
+
     const image = await controller.model.unsplash.searchImage();
 
     constants.updateBackgroundButton.removeEventListener('click', update);

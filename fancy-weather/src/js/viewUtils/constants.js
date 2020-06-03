@@ -27,6 +27,6 @@ export default ({
   secondWeekDay: document.querySelector('.second-forecast-day-title'),
   thirdWeekDay: document.querySelector('.third-forecast-day-title'),
 
-  pageLoader: document.querySelector('#page-loader'),
   backgroundImage: document.querySelector('.background-image'),
+  queryLoader: document.querySelector('.query-loader-body'),
 });

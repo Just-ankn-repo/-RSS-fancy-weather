@@ -92,3 +92,25 @@ img {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.query-loader-body {
+  z-index: 900;
+  top: 0;
+  background: black;
+  opacity: 0.8;
+  position: fixed;
+  width: 100%;
+  height: 10px;
+}
+
+.query-loader-item {
+  z-index: 901;
+  background: rgb(87, 87, 87);
+  height: 10px;
+  animation: load 4s linear infinite;
+}
+
+@keyframes load {
+  0% { transform: scaleX(0%); }
+  100% { transform: rotate(100%); }
+}

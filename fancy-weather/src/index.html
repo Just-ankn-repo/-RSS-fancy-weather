@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section class="page__loader" id="page-loader">
+    <div class="page__loader" id="page-loader">
       <div class="loader"></div>
-    </section>
+    </div>
+    <div class="query-loader-body" style="">
+      <div class="query-loader-item"></div>
+    </div>
     <div class="shadow"></div>
     <img class="background-image"></img>
     <main class="app__page" id="app-page">
       <section class="section__left">
         <div class="controls">
-          <div class="update-background"></div>
+          <div class="update-background default-button"><div></div></div>
           <select class="change-lang">
             <option id="lang-en">EN</option>
             <option id="lang-ru">RU</option>
@@ -27,6 +30,9 @@
             <div id="imperial">&#8457;</div>
             <div id="metric">&#8451;</div>
           </div>
+          <div class="find-geolocation default-button"><div></div></div>
+          <div class="switch-microphone default-button"><div></div></div>
+          <div class="weather-speech default-button"><div></div></div>
         </div>
         <div class="weather">
           <div class="current__city"></div>

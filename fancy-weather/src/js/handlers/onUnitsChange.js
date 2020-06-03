@@ -3,6 +3,7 @@ import constants from './constants';
 
 export default function onChangeUnits(controller, units) {
   function changeUnits(event) {
+    constants.queryLoader.style.display = 'block';
     constants.metricUnitsButton.removeEventListener('click', changeUnits, true);
     constants.imperialUnitsButton.removeEventListener('click', changeUnits, true);
     constants.metricUnitsButton.setAttribute('metricUnitsButton-changeUnits-click', 'false');

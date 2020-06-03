@@ -9,6 +9,7 @@ export default (controller) => {
 
   const search = (event) => {
     if (event.target[0].value.toString().length !== 0) {
+      constants.queryLoader.style.display = 'block';
       constants.searchForm.removeEventListener('submit', search);
       constants.searchForm.setAttribute('searchForm-search-submit', 'false');
       constants.searchButton.classList.add('lock');
