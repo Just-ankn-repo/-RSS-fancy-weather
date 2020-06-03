@@ -4,8 +4,8 @@ export default (controller, view, units, lang) => {
   handlers.onSearch(controller);
   handlers.onBackgroundUpdate(controller, view);
   handlers.onGeoLocation(controller);
-  handlers.onSpeechRecognition(controller);
-  handlers.onWeatherSpeech(controller);
+  handlers.onSpeechRecognition(view);
+  handlers.onWeatherSpeech(view);
 
   if (units) handlers.onUnitsChange(controller, units);
   if (lang) {
