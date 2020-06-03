@@ -2,8 +2,7 @@
 import createTextForSpeech from './createTextForSpeech';
 
 export default class SpeechSynthesis {
-  constructor(view) {
-    this.view = view;
+  constructor() {
     this.synth = window.speechSynthesis;
     this.message = new SpeechSynthesisUtterance();
     this.message.volume = 5;
