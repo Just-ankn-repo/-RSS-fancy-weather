@@ -6,7 +6,7 @@ const weekDays = {
   },
   full: {
     en: ['Sunday ', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    ru: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Сгббота'],
+    ru: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
     be: ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацьвер', 'Пятніца', 'Сыбота'],
   },
 };
@@ -22,7 +22,7 @@ const seasons = {
   south: ['summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter', 'winter', 'winter', 'spring', 'spring', 'spring', 'summer'],
 };
 
-const checkWeekDay = (weekDay, offset) => (weekDay + offset > 6 ? weekDay - 7 : weekDay + offset);
+const checkWeekDay = (day, i) => (day + i > 6 ? day + i - 7 : day + i);
 
 export default (lang, timezone, hemisphere) => {
   const date = new Date(new Date().toLocaleString('en-US', { timeZone: timezone }));
