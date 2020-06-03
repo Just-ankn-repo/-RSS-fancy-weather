@@ -48,6 +48,6 @@ const messageTemplate = {
 export default (data) => {
   const lang = data.lang === 'en' ? 'en' : 'ru';
   const message = messageTemplate[lang](data);
-  console.log(message);
+  console.log({ speechMessage: message });
   return message;
 };
