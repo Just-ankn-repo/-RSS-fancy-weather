@@ -5,6 +5,7 @@ import onBackgroundUpdate from './onBackgroundUpdate';
 import onGeoLocation from './onGeoLocation';
 import onSpeechRecognition from './onSpeechRecognition';
 import onWeatherSpeech from './onWeatherSpeech';
+import onErrorButton from './onErrorButton';
 import constants from './constants';
 
 export default {
@@ -15,5 +16,6 @@ export default {
   onGeoLocation,
   onSpeechRecognition,
   onWeatherSpeech,
+  onErrorButton,
   constants,
 };

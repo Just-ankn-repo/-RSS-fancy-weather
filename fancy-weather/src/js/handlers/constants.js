@@ -14,4 +14,5 @@ export default ({
   findGeolocationButton: document.querySelector('.find-geolocation'),
   switchMicrophoneButton: document.querySelector('.switch-microphone'),
   speechWeatherButton: document.querySelector('.weather-speech'),
+  errorList: document.querySelector('.errors-list'),
 });

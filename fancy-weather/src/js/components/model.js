@@ -2,7 +2,8 @@
 
 import apis from '../api/index';
 import utils from '../utils/index';
-import Vars from './global.var';
+import Vars from './Global.vars';
+import globalErrors from '../utils/globalErrors';
 
 export default class Model {
   constructor(controller) {
@@ -17,17 +18,22 @@ export default class Model {
   }
 
   async getWeatherByCity(city) {
-    const geoData = await this.geocodingByCity.getCoordinates(city);
-    const weather = await this.weather.getWeather(geoData.location.lat, geoData.location.lng);
-    let weatherData = utils.combineWeatherData(geoData, weather);
-    const vars = this.vars.getVars();
-    const hemisphere = weatherData.lat < 0 ? 'south' : 'north';
-    const date = utils.getDate(vars.lang, weatherData.timezone, hemisphere);
-    weatherData = Object.assign(weatherData, vars, date);
-    const imageQuery = `${weatherData.dayTime} ${weatherData.season} ${weatherData.currentWeather.weather}`;
-    weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
-    this.lastQuery = city;
-    return weatherData;
+    try {
+      const geoData = await this.geocodingByCity.getCoordinates(city);
+      const weather = await this.weather.getWeather(geoData.location.lat, geoData.location.lng);
+      let weatherData = utils.combineWeatherData(geoData, weather);
+      const vars = this.vars.getVars();
+      const hemisphere = weatherData.lat < 0 ? 'south' : 'north';
+      const date = utils.getDate(vars.lang, weatherData.timezone, hemisphere);
+      weatherData = Object.assign(weatherData, vars, date);
+      const imageQuery = `${weatherData.dayTime} ${weatherData.season} ${weatherData.currentWeather.weather}`;
+      weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
+      this.lastQuery = city;
+      return weatherData;
+    } catch (e) {
+      globalErrors(e);
+    }
+    return null;
   }
 
   async getWeatherByGeolocation(lat, lon) {

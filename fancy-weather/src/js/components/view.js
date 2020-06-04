@@ -5,26 +5,31 @@ import '../../css/search.css';
 import '../../css/weather.css';
 import viewUtils from '../viewUtils/index';
 import setAllHandlers from '../handlers/setAllHandlers';
+import globalErrors from '../utils/globalErrors';
 
 export default class View {
   constructor(controller) {
     this.controller = controller;
-    this.map = new viewUtils.Map();
+    this.map = new viewUtils.Mapbox();
     this.clock = new viewUtils.Clock(viewUtils.constants.currentTime);
     this.synth = new viewUtils.SpeechSynthesis();
     this.speechActive = false;
+    this.recognition = new viewUtils.SpeechRecognition(this.controller, this.synth);
     this.lastData = {};
   }
 
   render(data) {
     console.log(data);
-    this.lastData = data;
-    viewUtils.renderDataOnPage(data);
-    viewUtils.updateBackground(data.backgroundImage);
-    this.map.updateMap(data.lon, data.lat);
-    this.clock.updateTime(data.timezone);
-    setAllHandlers(this.controller, this, data.units, data.lang);
-    if (this.speechActive) this.synth.speech(data, this.speechActive);
+    if (data && data !== null) {
+      this.lastData = data;
+      viewUtils.renderDataOnPage(this.lastData);
+      viewUtils.updateBackground(this.lastData.backgroundImage);
+      this.map.updateMap(this.lastData.lon, this.lastData.lat);
+      this.clock.updateTime(this.lastData.timezone);
+    }
+    setAllHandlers(this.controller, this, this.lastData.units, this.lastData.lang);
+    this.recognition.changeLang(this.lastData.lang);
+    if (this.speechActive) this.synth.speech(this.lastData, this.speechActive);
   }
 
   updateBackground(image) {
@@ -38,7 +43,9 @@ export default class View {
     setAllHandlers(this.controller, this);
   }
 
-  speechRecognition() {
+  speechRecognition(isActive) {
+    this.recognition.changeLang(this.lastData.lang);
+    this.recognition.start(isActive);
     setAllHandlers(this.controller, this);
   }
 }

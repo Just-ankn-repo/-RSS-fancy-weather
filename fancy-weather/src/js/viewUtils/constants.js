@@ -37,4 +37,5 @@ export default ({
 
   backgroundImage: document.querySelector('.background-image'),
   queryLoader: document.querySelector('.query-loader-body'),
+  errorList: document.querySelector('.errors-list'),
 });

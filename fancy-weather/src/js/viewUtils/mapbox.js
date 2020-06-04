@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import '../../css/mapbox-gl.css';
 import config from '../../config/env.config';
 
-export default class Map {
+export default class Mapbox {
   constructor() {
     this.lonElement = document.querySelector('.current__latitude > span:nth-child(2)');
     this.latElement = document.querySelector('.current__longtitude > span:nth-child(2)');

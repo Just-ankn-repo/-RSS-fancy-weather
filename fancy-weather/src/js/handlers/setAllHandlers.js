@@ -6,6 +6,7 @@ export default (controller, view, units, lang) => {
   handlers.onGeoLocation(controller);
   handlers.onSpeechRecognition(view);
   handlers.onWeatherSpeech(view);
+  handlers.onErrorButton();
 
   if (units) handlers.onUnitsChange(controller, units);
   if (lang) {

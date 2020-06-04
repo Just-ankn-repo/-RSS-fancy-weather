@@ -1,5 +1,6 @@
 /* global fetch */
 import config from '../../config/env.config';
+import globalErrors from '../utils/globalErrors';
 
 export default class cityByIP {
   constructor() {
@@ -8,8 +9,13 @@ export default class cityByIP {
   }
 
   async getCity() {
-    const response = await fetch(`${this.apiUrl}/ipgeo?apiKey=${this.apiToken}`);
-    const result = await response.json();
-    return `${result.city}, ${result.country_name}`;
+    try {
+      const response = await fetch(`${this.apiUrl}/ipgeo?apiKey=${this.apiToken}`);
+      const result = await response.json();
+      return `${result.city}, ${result.country_name}`;
+    } catch (e) {
+      globalErrors(e);
+    }
+    return null;
   }
 }

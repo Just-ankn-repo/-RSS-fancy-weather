@@ -1,5 +1,6 @@
 /* global fetch Image */
 import config from '../../config/env.config';
+import globalErrors from '../utils/globalErrors';
 
 export default class Unsplash {
   constructor() {
@@ -17,6 +18,7 @@ export default class Unsplash {
         per_page=1&query={${this.lastQuery}}&client_id=${this.apiToken}`);
       result = await response.json();
     } catch (e) {
+      globalErrors(e);
       result.urls = { full: './assets/img/default-background.jpg' };
     }
 

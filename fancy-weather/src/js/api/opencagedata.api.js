@@ -1,6 +1,7 @@
 /* global fetch */
 import config from '../../config/env.config';
 import getPlace from '../utils/getPlace';
+import globalErrors from '../utils/globalErrors';
 
 export default class GeocodingByCity {
   constructor(vars) {
@@ -10,27 +11,36 @@ export default class GeocodingByCity {
   }
 
   async getCoordinates(query) {
-    const { lang } = this.vars.getVars();
-    const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
-      pretty=1&language=${lang}`);
-    const result = await response.json();
-    const tempLocation = getPlace(result.results[0].components);
-
-    return {
-      city: tempLocation.city,
-      country: tempLocation.country,
-      location: result.results[0].geometry,
-      timezone: result.results[0].annotations.timezone.name,
-    };
+    try {
+      const { lang } = this.vars.getVars();
+      const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
+        pretty=1&language=${lang}`);
+      const result = await response.json();
+      const tempLocation = getPlace(result.results[0].components);
+      return {
+        city: tempLocation.city,
+        country: tempLocation.country,
+        location: result.results[0].geometry,
+        timezone: result.results[0].annotations.timezone.name,
+      };
+    } catch (e) {
+      globalErrors(e);
+    }
+    return null;
   }
 
   async getCity(query) {
-    const { lang } = this.vars.getVars();
-    const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
-      pretty=1&language=${lang}`);
-    const result = await response.json();
-    const tempLocation = getPlace(result.results[0].components);
+    try {
+      const { lang } = this.vars.getVars();
+      const response = await fetch(`${this.apiUrl}/geocode/v1/json?q=${query}&key=${this.apiToken}&
+        pretty=1&language=${lang}`);
+      const result = await response.json();
+      const tempLocation = getPlace(result.results[0].components);
 
-    return `${tempLocation.city}, ${tempLocation.country}`;
+      return `${tempLocation.city}, ${tempLocation.country}`;
+    } catch (e) {
+      globalErrors(e);
+    }
+    return null;
   }
 }
