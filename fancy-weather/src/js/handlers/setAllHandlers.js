@@ -7,6 +7,7 @@ export default (controller, view, units, lang) => {
   handlers.onSpeechRecognition(view);
   handlers.onWeatherSpeech(view);
   handlers.onErrorButton();
+  handlers.onKeyboardButton();
 
   if (units) handlers.onUnitsChange(controller, units);
   if (lang) {

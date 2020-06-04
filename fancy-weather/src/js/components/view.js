@@ -3,6 +3,7 @@ import '../../css/controls.css';
 import '../../css/map.css';
 import '../../css/search.css';
 import '../../css/weather.css';
+import './virtual-keyboard/index';
 import viewUtils from '../viewUtils/index';
 import setAllHandlers from '../handlers/setAllHandlers';
 

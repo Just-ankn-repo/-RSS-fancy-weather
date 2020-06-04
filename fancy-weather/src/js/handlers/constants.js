@@ -11,6 +11,9 @@ export default ({
   metricUnitsButton: document.querySelector('#metric'),
   imperialUnitsButton: document.querySelector('#imperial'),
 
+  keyboardElement: document.querySelector('.keyboard'),
+  keyboardButton: document.querySelector('.controls__virtual-keyboard'),
+
   updateBackgroundButton: document.querySelector('.controls__update-background'),
   changeLangSellector: document.querySelector('.controls__change-lang'),
   findGeolocationButton: document.querySelector('.controls__find-geolocation'),
