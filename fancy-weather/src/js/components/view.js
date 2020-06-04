@@ -29,7 +29,7 @@ export default class View {
     }
     setAllHandlers(this.controller, this, this.lastData.units, this.lastData.lang);
     this.recognition.changeLang(this.lastData.lang);
-    if (this.speechActive) this.synth.speech(this.lastData, this.speechActive);
+    if (this.speechActive) this.synth.speechStart(this.lastData, this.speechActive);
   }
 
   updateBackground(image) {
@@ -39,7 +39,7 @@ export default class View {
 
   speechWeather(isActive) {
     this.speechActive = isActive;
-    this.synth.speech(this.lastData, isActive);
+    this.synth.speechStart(this.lastData, isActive);
     setAllHandlers(this.controller, this);
   }
 
