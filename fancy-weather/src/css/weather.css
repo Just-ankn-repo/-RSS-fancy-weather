@@ -1,124 +1,161 @@
 .weather {
-  position: relative;
   display: flex;
   flex-direction: column;
-  flex: 8.5;
-  padding-left: 9.5%;
-  padding-top: 2%;
+  flex: 2;
+  margin-right: 3vw;
+  overflow: hidden;
 }
 
-.current__city {
-  font-size: 55px;
-  font-weight: bolder;
+.weather__current {
+  position: relative;
+  width: 100%;
+  height: 50vh;
 }
 
-.current__datetime {
+.weather__current-datetime {
   display: flex;
   flex-direction: row;
-  margin-top: 8px;
-  font-size: 25px;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 
-.current__date {
+.current-datetime__date {
   display: flex;
   flex-direction: row;
 }
 
-.current__weekday {
-}
-
-.current__monthday {
+.current-datetime__monthday {
   margin-left: 10px;
 }
 
-.current__month {
+.current-datetime__month {
   margin-left: 10px;
 }
 
-.current__time {
+.current-datetime__time {
   margin-left: 30px;
 }
 
-.current__timezone {
-  margin-left: 10px;
+.current-datetime__timezone {
+  margin-left: 30px;
 }
 
-.current__weather {
+.weather__current-weather {
   display: flex;
   flex-direction: row;
 }
 
-.current__degrees {
+.current-weather__degrees {
   position: relative;
-  margin-top: 20px;
-  font-size: 400px;
+  line-height: 23rem;
+  font-size: 25rem;
   font-weight: 700;
+  flex: 2;
 }
 
-.current__degrees > span > span{
+.current-weather__degrees > span:nth-child(2){
   position: relative;
-  font-size: 150px;
-  top: -160px;
-  left: 5px;
+  left: 1vw;
 }
 
-.current__additional {
+.current-weather__additional {
   margin-left: 35px;
-  font-size: 40px;
+  font-size: 1.5rem;
+  flex: 1;
 }
 
-.current__weather-icon {
+.additional__weather-icon {
   display: block;
-  width: 200px;
+  width: 70%;
   height: auto;
 }
 
-.current__weather-description {
+.additional__description {
   
 }
 
-.current__weather-feels {
+.additional__feels {
   margin-top: 12px;
 }
 
-.current__weather-wind {
+.additional__wind {
   margin-top: 12px;
 }
 
-.current__weather-humidity {
+.additional__humidity {
   margin-top: 12px;
 }
 
-.forecast__weather {
+.weather__forecast-weather {
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 4vh;
+  overflow: hidden;
 }
 
-.weather__day {
+.forecast-weather__day {
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  margin-right: 3vh;
 }
 
 .day__title {
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .day__weather {
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
+  align-items: center;
 }
 
 .day__degrees {
-  font-size: 100px;
+  font-size: 4rem;
   font-weight: 700;
 }
 
 .day__weather-icon {
-  width: 100px;
+  width: 70%;
   height: auto;
+}
+
+@media (min-width: 720px) and (max-width: 1023px) {
+
+}
+
+@media (min-width: 480px) and (max-width: 719px) {
+  .weather__current {
+    height: 30vh;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .weather__current {
+    height: 100%;
+  }
+
+  .current-weather__degrees {
+    font-size: 15rem;
+    line-height: 15rem;
+  }
+
+  .weather__current-weather {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .current-weather__additional {
+    font-size: 3rem;
+  }
+
+  .weather__forecast-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .day__title {
+    text-align: center;
+  }
 }

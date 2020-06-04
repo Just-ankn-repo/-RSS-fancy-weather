@@ -36,7 +36,6 @@ export default class GeocodingByCity {
         pretty=1&language=${lang}`);
       const result = await response.json();
       const tempLocation = getPlace(result.results[0].components);
-
       return `${tempLocation.city}, ${tempLocation.country}`;
     } catch (e) {
       globalErrors(e);

@@ -5,7 +5,6 @@ import '../../css/search.css';
 import '../../css/weather.css';
 import viewUtils from '../viewUtils/index';
 import setAllHandlers from '../handlers/setAllHandlers';
-import globalErrors from '../utils/globalErrors';
 
 export default class View {
   constructor(controller) {

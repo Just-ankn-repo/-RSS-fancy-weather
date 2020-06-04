@@ -2,17 +2,19 @@
 
 export default ({
   queryLoader: document.querySelector('.query-loader-body'),
-  pageLoader: document.querySelector('#page-loader'),
+  pageLoader: document.querySelector('.page__loader'),
+
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('.search-input'),
   searchButton: document.querySelector('.search-button'),
-  searchLoader: document.querySelector('.search-input_loader'),
+
   metricUnitsButton: document.querySelector('#metric'),
   imperialUnitsButton: document.querySelector('#imperial'),
-  updateBackgroundButton: document.querySelector('.update-background'),
-  changeLangSellector: document.querySelector('.change-lang'),
-  findGeolocationButton: document.querySelector('.find-geolocation'),
-  switchMicrophoneButton: document.querySelector('.switch-microphone'),
-  speechWeatherButton: document.querySelector('.weather-speech'),
+
+  updateBackgroundButton: document.querySelector('.controls__update-background'),
+  changeLangSellector: document.querySelector('.controls__change-lang'),
+  findGeolocationButton: document.querySelector('.controls__find-geolocation'),
+  switchMicrophoneButton: document.querySelector('.controls__switch-microphone'),
+  speechWeatherButton: document.querySelector('.controls__weather-speech'),
   errorList: document.querySelector('.errors-list'),
 });

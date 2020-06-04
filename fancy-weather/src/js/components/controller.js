@@ -1,6 +1,5 @@
 import View from './View';
 import Model from './Model';
-import globalErrors from '../utils/globalErrors';
 
 export default class Controller {
   constructor() {

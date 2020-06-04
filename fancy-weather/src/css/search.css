@@ -1,27 +1,19 @@
-.search__city {
-  padding-top: 50px;
-}
-
 .search-form {
-  width: 80%;
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  width: 100%;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .search-input {
-  display: inline-block;
-  width: 71%;
+  width: 100%;
   height: 50px;
   outline: none;
   border-radius: 10px 0px 0px 10px;
   padding-left: 10px;
   color: black;
-}
-
-.microphone-button {
-  display: inline-block;
+  font-size: 20px;
 }
 
 .search-button {
