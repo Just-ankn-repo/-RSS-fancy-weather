@@ -152,7 +152,6 @@ img {
   width: calc(100vw - 6vw);
   height: calc(100vh - 130px);
   padding: 20px 3vw;
-  overflow: hidden;
   z-index: 3;
 }
 
@@ -195,13 +194,13 @@ img {
   }
 
   body {
-    height: 1200px;
+    height: 1350px;
     overflow-y: scroll;
   }
 
   .page__loader {
     justify-content: flex-start;
-    height: 1200px;
+    height: 1350px;
   }
 
   .loader__spinner {
@@ -209,12 +208,12 @@ img {
   }
   
   .shadow {
-    height: 1200px;
+    height: 1350px;
   }
 
   .background-image {
     width: auto;
-    height: 1200px;
+    height: 1350px;
   }
 
   .app__header {
@@ -225,13 +224,17 @@ img {
 
   .app__body {
     align-items: center;
-    height: 900px;
+    height: 1050px;
   }
 
   .body__section {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .weather__current-city {
+    text-align: center;
   }
 }
 
@@ -278,6 +281,10 @@ img {
     display: flex;
     flex-direction: column;
   }
+
+  .weather__current-city {
+    text-align: center;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
@@ -286,13 +293,13 @@ img {
   }
 
   body {
-    height: 1700px;
+    height: 1800px;
     overflow-y: scroll;
   }
 
   .page__loader {
     justify-content: flex-start;
-    height: 1700px;
+    height: 1800px;
   }
 
   .loader__spinner {
@@ -300,12 +307,12 @@ img {
   }
 
   .shadow {
-    height: 1700px;
+    height: 1800px;
   }
 
   .background-image {
     width: auto;
-    height: 1700px;
+    height: 1800px;
   }
 
   .app__header {
@@ -316,11 +323,16 @@ img {
 
   .app__body {
     align-items: center;
-    height: 1400px;
+    height: 1500px;
   }
 
   .body__section {
     display: flex;
     flex-direction: column;
+    height: 1500px;
+  }
+
+  .weather__current-city {
+    text-align: center;
   }
 }

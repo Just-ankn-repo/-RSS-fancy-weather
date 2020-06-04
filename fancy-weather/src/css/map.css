@@ -41,6 +41,6 @@
 
 @media (min-width: 320px) and (max-width: 479px) {
   .location-map {
-    height: 400px;
+    height: 350px;
   }
 }

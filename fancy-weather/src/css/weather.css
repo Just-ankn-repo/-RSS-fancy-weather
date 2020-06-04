@@ -132,7 +132,7 @@
 
 @media (min-width: 320px) and (max-width: 479px) {
   .weather__current {
-    height: 100%;
+    height: 90%;
   }
 
   .current-weather__degrees {
@@ -153,6 +153,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
   }
 
   .day__title {
