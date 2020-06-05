@@ -15,6 +15,7 @@ export default (controller, view, units, lang) => {
     handlers.constants.changeLangSellector.value = lang;
   }
 
+  handlers.constants.searchInput.value = '';
   handlers.constants.queryLoader.style.display = 'none';
   handlers.constants.pageLoader.style.display = 'none';
 };
