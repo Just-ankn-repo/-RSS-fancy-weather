@@ -4,7 +4,7 @@ const messageTemplate = {
       Current weather at ${data.city}...
       ${data.currentWeather.description}..
       Temperature is ${data.currentWeather.temp} degree ${data.units === 'metric' ? 'celsuis' : 'ferenhate'}..
-      Feels like ${data.currentWeather.temp} degree..
+      Feels like ${data.currentWeather.feelsLike} degree..
       Humidity is ${data.currentWeather.humidity}..
       Wind speed is ${data.currentWeather.windSpeed}..
     
@@ -26,7 +26,7 @@ const messageTemplate = {
       Текущая погода в ${data.city}...
       ${data.currentWeather.description}..
       Температура составляет ${data.currentWeather.temp} градусов ${data.units === 'metric' ? 'цельсия' : 'фаренгейта'}..
-      По ощущениям ${data.currentWeather.temp} градусов..
+      По ощущениям ${data.currentWeather.feelsLike} градусов..
       Влажность ${data.currentWeather.humidity}..
       Скорость ветра ${data.currentWeather.windSpeed}..
 
