@@ -2,6 +2,12 @@ import constants from './constants';
 import i18n from '../i18n/index';
 
 export default (data) => {
+  let location;
+
+  if (data.city && data.country) location = `${data.city}, ${data.country}`;
+  else if (data.city || data.country) location = data.city || data.country;
+  else location = data.lang === 'en' ? 'Somewhere here' : 'Где-то здесь';
+
   constants.feelsLikeText.textContent = i18n[data.lang].feelsLike;
   constants.windText.textContent = i18n[data.lang].wind;
   constants.humidityText.textContent = i18n[data.lang].humidity;
@@ -10,7 +16,7 @@ export default (data) => {
   constants.latitudeText.textContent = i18n[data.lang].latitudeText;
   constants.longitudeText.textContent = i18n[data.lang].longitudeText;
 
-  constants.currentCity.textContent = `${data.city}, ${data.country}`;
+  constants.currentCity.textContent = location;
   constants.currentWeekDay.textContent = data.weekDay;
   constants.currentDay.textContent = data.day;
   constants.currentMonth.textContent = data.month;
