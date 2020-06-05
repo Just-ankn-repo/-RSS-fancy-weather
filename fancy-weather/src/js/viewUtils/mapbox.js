@@ -23,7 +23,7 @@ export default class Mapbox {
     this.marker.setLngLat([lon, lat]);
     const roundedLon = Math.round(lon * 100) / 100;
     const roundedLat = Math.round(lat * 100) / 100;
-    this.lonElement.textContent = `${roundedLon.toString().split('.')[0]}°${roundedLon.toString().split('.')[1]}'`;
-    this.latElement.textContent = `${roundedLat.toString().split('.')[0]}°${roundedLat.toString().split('.')[1]}'`;
+    this.lonElement.textContent = `${roundedLon.toString().split('.')[0] || 0}°${roundedLon.toString().split('.')[1] || 0}'`;
+    this.latElement.textContent = `${roundedLat.toString().split('.')[0] || 0}°${roundedLat.toString().split('.')[1] || 0}'`;
   }
 }
