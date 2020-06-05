@@ -1,11 +1,11 @@
-import Unsplash from './Unsplash.api';
-import Weather from './Openweathermap.api';
-import GeocodingByCity from './Opencagedata.api';
-import CityByIP from './Ipgeolocation.api';
+import unsplash from './unsplash.api';
+import weather from './weather.api';
+import geocoding from './geocoding.api';
+import ipLocation from './ipLocation.api';
 
 export default {
-  Unsplash,
-  Weather,
-  GeocodingByCity,
-  CityByIP,
+  unsplash,
+  weather,
+  geocoding,
+  ipLocation,
 };

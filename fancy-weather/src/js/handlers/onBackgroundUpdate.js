@@ -1,17 +1,15 @@
-import $on from '../utils/setListener';
+import $on from '../viewUtils/setListener';
 import constants from './constants';
 
-export default (controller, view) => {
+export default (controller) => {
   const update = async () => {
     constants.queryLoader.style.display = 'block';
-
-    const image = await controller.model.unsplash.searchImage();
 
     constants.updateBackgroundButton.removeEventListener('click', update);
     constants.updateBackgroundButton.setAttribute('updBgrButton-update-click', 'false');
     constants.updateBackgroundButton.classList.add('lock');
 
-    view.updateBackground(image);
+    controller.updateBackground();
   };
 
   constants.updateBackgroundButton.classList.remove('lock');

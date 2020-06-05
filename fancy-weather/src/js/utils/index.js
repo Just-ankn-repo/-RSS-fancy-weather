@@ -1,9 +1,9 @@
-import combineWeatherData from './combineWeatherData';
-import setListener from './setListener';
+import weatherData from './weatherData';
 import getDate from './getDate';
+import getLocation from './getLocation';
 
 export default {
-  combineWeatherData,
-  setListener,
+  weatherData,
   getDate,
+  getLocation,
 };

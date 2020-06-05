@@ -2,7 +2,7 @@
 
 import apis from '../api/index';
 import utils from '../utils/index';
-import Vars from './Global.vars';
+import Vars from '../utils/Global.vars';
 import globalErrors from '../utils/globalErrors';
 
 export default class Model {
@@ -10,62 +10,36 @@ export default class Model {
     this.controller = controller;
     this.localStorage = window.localStorage;
     this.vars = new Vars(this);
-    this.weather = new apis.Weather(this.vars);
-    this.geocodingByCity = new apis.GeocodingByCity(this.vars);
-    this.cityByIP = new apis.CityByIP();
-    this.unsplash = new apis.Unsplash();
-    this.lastQuery = '';
+    this.lastPlace = undefined;
   }
 
-  async getWeatherByCity(city) {
+  async getWeatherForPlace(place) {
+    const vars = this.vars.getVars();
+    let geoData;
+    let weather;
+
     try {
-      const geoData = await this.geocodingByCity.getCoordinates(city);
-      const weather = await this.weather.getWeather(geoData.location.lat, geoData.location.lng);
-      let weatherData = utils.combineWeatherData(geoData, weather);
-      const vars = this.vars.getVars();
-      const hemisphere = weatherData.lat < 0 ? 'south' : 'north';
-      const date = utils.getDate(vars.lang, weatherData.timezone, hemisphere);
-      weatherData = Object.assign(weatherData, vars, date);
-      const imageQuery = `${weatherData.dayTime} ${weatherData.season} ${weatherData.currentWeather.weather}`;
-      weatherData.backgroundImage = await this.unsplash.searchImage(imageQuery);
-      this.lastQuery = city;
-      return weatherData;
+      geoData = await utils.getLocation(place || null, vars.lang);
+      weather = await apis.weather(geoData.lat, geoData.lon, vars.lang, vars.units);
     } catch (e) {
       globalErrors(e);
     }
-    return null;
+
+    if (geoData && weather) {
+      const weatherData = utils.weatherData(weather);
+      const weatherAndGeoData = Object.assign(geoData, vars, weatherData);
+      this.lastPlace = place || `${geoData.city}, ${geoData.country}`;
+      this.controller.updateUI(weatherAndGeoData);
+    }
   }
 
-  async getWeatherByGeolocation(lat, lon) {
-    const city = await this.geocodingByCity.getCity(`${lat} ${lon}`);
-    const weatherData = await this.getWeatherByCity(city);
-    return weatherData;
-  }
+  getWeather(place) {
+    const success = (location) => this.getWeatherForPlace(location);
+    const error = () => this.getWeatherForPlace();
 
-  async getWeatherByIP() {
-    const city = await this.cityByIP.getCity();
-    const weatherData = await this.getWeatherByCity(city);
-    return weatherData;
-  }
-
-  async getWeather(city) {
-    const query = city || this.lastQuery;
-    if (city || city === null) {
-      const weatherData = await this.getWeatherByCity(query);
-      this.controller.updateUI(weatherData);
-    } else if (!city) {
-      const success = async (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        const weatherData = await this.getWeatherByGeolocation(lat, lon);
-        this.controller.updateUI(weatherData);
-      };
-
-      const error = async () => {
-        const weatherData = await this.getWeatherByIP();
-        this.controller.updateUI(weatherData);
-      };
-
+    if (place || place === null) {
+      this.getWeatherForPlace(place || this.lastPlace);
+    } else if (!place) {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   }

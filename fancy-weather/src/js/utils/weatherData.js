@@ -1,9 +1,4 @@
-export default (geodata, weather) => ({
-  city: geodata.city,
-  country: geodata.country,
-  lat: geodata.location.lat,
-  lon: geodata.location.lng,
-  timezone: geodata.timezone,
+export default (weather) => ({
   timezoneOffset: `UTC${weather.timezone_offset < 0 ? '' : '+'}${weather.timezone_offset / 3600}`,
   currentWeather: {
     temp: Math.round(weather.current.temp),

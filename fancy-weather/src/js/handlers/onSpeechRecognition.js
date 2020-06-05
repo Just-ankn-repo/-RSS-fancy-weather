@@ -1,4 +1,4 @@
-import $on from '../utils/setListener';
+import $on from '../viewUtils/setListener';
 import constants from './constants';
 
 export default (view) => {

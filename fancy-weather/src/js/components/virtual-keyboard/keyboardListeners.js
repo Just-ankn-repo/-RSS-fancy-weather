@@ -1,5 +1,5 @@
 /* global window document */
-import $on from '../../utils/setListener';
+import $on from '../../viewUtils/setListener';
 
 export default (keyboard, printKey) => {
 
