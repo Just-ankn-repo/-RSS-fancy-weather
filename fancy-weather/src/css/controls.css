@@ -21,6 +21,17 @@
   transform: scale(0.9);
 }
 
+.default-button:hover {
+  animation: shake 2s linear;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }  
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
 .default-button.lock {
   cursor: default;
 }
@@ -52,6 +63,10 @@
   margin-left: 10px;
   border-radius: 10px;
   padding: 0px 15px;
+}
+
+.controls__change-lang:hover {
+  animation: fade 1s linear;
 }
 
 .controls__change-lang.lock {
@@ -95,6 +110,7 @@
   cursor: default;
   background-color: rgb(87, 87, 87);
   opacity: 1;
+  transform: none;
 }
 
 #imperial:active {
@@ -110,6 +126,7 @@
   cursor: default;
   background-color: rgb(87, 87, 87);
   opacity: 1;
+  transform: none;
 }
 
 #metric:active {

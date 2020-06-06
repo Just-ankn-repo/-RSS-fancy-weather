@@ -1,4 +1,5 @@
 import constants from './constants';
+import animatedWeather from './animatedWeather';
 import i18n from '../i18n/index';
 
 export default (data) => {
@@ -22,7 +23,7 @@ export default (data) => {
   constants.currentMonth.textContent = data.month;
   constants.currentTimezone.textContent = data.timezoneOffset;
 
-  constants.currentWeatherIcon.src = `https://openweathermap.org/img/wn/${data.currentWeather.icon}@2x.png`;
+  constants.currentWeatherIcon.innerHTML = animatedWeather[data.currentWeather.icon];
   constants.currentWeatherDesc.textContent = data.currentWeather.description;
   constants.currentDegrees.textContent = data.currentWeather.temp;
   constants.currentFeelsLike.textContent = data.currentWeather.feelsLike;
@@ -31,13 +32,13 @@ export default (data) => {
 
   constants.firstDayTitle.textContent = data.firstWeekDay;
   constants.firstDayDegrees.textContent = data.forecastWeather.firstDay.temp;
-  constants.firstDayIcon.src = `https://openweathermap.org/img/wn/${data.forecastWeather.firstDay.icon}@2x.png`;
+  constants.firstDayIcon.innerHTML = animatedWeather[data.forecastWeather.firstDay.icon];
 
   constants.secondDayTitle.textContent = data.secondWeekDay;
   constants.secondDayDegrees.textContent = data.forecastWeather.secondDay.temp;
-  constants.secondDayIcon.src = `https://openweathermap.org/img/wn/${data.forecastWeather.secondDay.icon}@2x.png`;
+  constants.secondDayIcon.innerHTML = animatedWeather[data.forecastWeather.secondDay.icon];
 
   constants.thirdDayTitle.textContent = data.thirdWeekDay;
   constants.thirdDayDegrees.textContent = data.forecastWeather.thirdDay.temp;
-  constants.thirdDayIcon.src = `https://openweathermap.org/img/wn/${data.forecastWeather.thirdDay.icon}@2x.png`;
+  constants.thirdDayIcon.innerHTML = animatedWeather[data.forecastWeather.thirdDay.icon];
 };
