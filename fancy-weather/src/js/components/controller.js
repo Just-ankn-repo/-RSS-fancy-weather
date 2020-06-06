@@ -15,13 +15,16 @@ export default class Controller {
   }
 
   async updateUI(data) {
-    const date = utils.getDate(data.lang, data.timezone, data.hemisphere);
-    const dataForRender = Object.assign(data, date);
-    this.lastImageQuery = `${dataForRender.dayTime} ${dataForRender.season} ${dataForRender.currentWeather.weather}`;
+    let dataForRender;
+    if (data && data !== null) {
+      const date = utils.getDate(data.lang, data.timezone, data.hemisphere);
+      dataForRender = Object.assign(data, date);
+      this.lastImageQuery = `${dataForRender.dayTime} ${dataForRender.season} ${dataForRender.currentWeather.weather}`;
 
-    dataForRender.backgroundImage = await apis.unsplash(this.lastImageQuery);
+      dataForRender.backgroundImage = await apis.unsplash(this.lastImageQuery);
+    }
 
-    this.view.render(dataForRender);
+    this.view.render(dataForRender || null);
   }
 
   async updateBackground() {

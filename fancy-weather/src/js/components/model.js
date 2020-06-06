@@ -23,6 +23,7 @@ export default class Model {
       weather = await apis.weather(geoData.lat, geoData.lon, vars.lang, vars.units);
     } catch (e) {
       globalErrors(e);
+      this.controller.updateUI(null);
     }
 
     if (geoData && weather) {
