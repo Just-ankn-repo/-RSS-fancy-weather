@@ -1,9 +1,9 @@
 /* global document */
-
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default (image) => {
-  constants.backgroundImage
-    .parentNode.replaceChild(image, constants.backgroundImage);
-  constants.backgroundImage = document.querySelector('.background-image');
+  htmlElements.backgroundImage
+    .parentNode.replaceChild(image, htmlElements.backgroundImage);
+
+  htmlElements.backgroundImage = document.querySelector('.background-image');
 };

@@ -1,21 +1,19 @@
-
-import $on from '../viewUtils/setListener';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default (controller) => {
   const findGeolocationButton = () => {
-    constants.queryLoader.style.display = 'block';
-    constants.findGeolocationButton.removeEventListener('click', findGeolocationButton);
-    constants.findGeolocationButton.setAttribute('findGeolocationButton-findByGeo-click', 'false');
-    constants.findGeolocationButton.classList.add('active');
+    htmlElements.queryLoader.style.display = 'block';
+    htmlElements.findGeolocationButton.removeEventListener('click', findGeolocationButton);
+    htmlElements.findGeolocationButton.setAttribute('findGeolocationButton-findByGeo-click', 'false');
+    htmlElements.findGeolocationButton.classList.add('active');
 
     controller.updateData();
   };
 
-  constants.findGeolocationButton.classList.remove('active');
+  htmlElements.findGeolocationButton.classList.remove('active');
 
-  if (constants.findGeolocationButton.getAttribute('findGeolocationButton-findByGeo-click') !== 'true') {
-    $on(constants.findGeolocationButton, 'click', findGeolocationButton);
-    constants.findGeolocationButton.setAttribute('findGeolocationButton-findByGeo-click', 'true');
+  if (htmlElements.findGeolocationButton.getAttribute('findGeolocationButton-findByGeo-click') !== 'true') {
+    htmlElements.findGeolocationButton.addEventListener('click', findGeolocationButton);
+    htmlElements.findGeolocationButton.setAttribute('findGeolocationButton-findByGeo-click', 'true');
   }
 };

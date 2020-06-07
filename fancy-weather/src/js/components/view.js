@@ -6,13 +6,14 @@ import '../../css/weather.css';
 import '../../css/animated-weather.css';
 import './virtual-keyboard/index';
 import viewUtils from '../viewUtils/index';
+import htmlElements from '../constants/htmlElements';
 import setAllHandlers from '../handlers/setAllHandlers';
 
 export default class View {
   constructor(controller) {
     this.controller = controller;
     this.map = new viewUtils.Mapbox();
-    this.clock = new viewUtils.Clock(viewUtils.constants.currentTime);
+    this.clock = new viewUtils.Clock(htmlElements.currentTime);
     this.synth = new viewUtils.SpeechSynthesis();
     this.recognition = new viewUtils.SpeechRecognition(this.controller, this.synth);
     this.speechActive = false;
@@ -28,9 +29,9 @@ export default class View {
       this.map.updateMap(this.lastData.lon, this.lastData.lat);
       this.clock.updateTime(this.lastData.timezone);
       this.recognition.changeLang(this.lastData.lang);
+      if (this.speechActive) this.synth.speechStart(this.lastData, this.speechActive);
     }
     setAllHandlers(this.controller, this, this.lastData.units, this.lastData.lang);
-    if (this.speechActive) this.synth.speechStart(this.lastData, this.speechActive);
   }
 
   updateBackground(image) {

@@ -1,24 +1,23 @@
-import $on from '../viewUtils/setListener';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default (view) => {
   const speech = () => {
-    const isActive = constants.speechWeatherButton.classList.contains('active');
+    const isActive = htmlElements.enableSoundButton.classList.contains('active');
 
-    constants.speechWeatherButton.removeEventListener('click', speech);
-    constants.speechWeatherButton.setAttribute('speechWeatherButton-speech-click', 'false');
+    htmlElements.enableSoundButton.removeEventListener('click', speech);
+    htmlElements.enableSoundButton.setAttribute('enableSoundButton-speech-click', 'false');
 
     if (isActive) {
-      constants.speechWeatherButton.classList.remove('active');
+      htmlElements.enableSoundButton.classList.remove('active');
     } else {
-      constants.speechWeatherButton.classList.add('active');
+      htmlElements.enableSoundButton.classList.add('active');
     }
 
     view.speechWeather(!isActive);
   };
 
-  if (constants.speechWeatherButton.getAttribute('speechWeatherButton-speech-click') !== 'true') {
-    $on(constants.speechWeatherButton, 'click', speech);
-    constants.speechWeatherButton.setAttribute('speechWeatherButton-speech-click', 'true');
+  if (htmlElements.enableSoundButton.getAttribute('enableSoundButton-speech-click') !== 'true') {
+    htmlElements.enableSoundButton.addEventListener('click', speech);
+    htmlElements.enableSoundButton.setAttribute('enableSoundButton-speech-click', 'true');
   }
 };

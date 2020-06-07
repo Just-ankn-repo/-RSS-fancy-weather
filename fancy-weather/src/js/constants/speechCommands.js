@@ -1,0 +1,17 @@
+export default {
+  changeLangEN: ['английском', 'English'],
+  changeLangRU: ['русском', 'Russian'],
+  changeLangBE: ['белорусском', 'Belarusian'],
+  speechWeather: ['погода', 'weather'],
+  stopSpeech: ['остановись', 'stop'],
+  enableSound: ['Включи звук', 'enable sound'],
+  disableSound: ['Выключи звук', 'disable sound'],
+  volumeUp: ['громче', 'volume up'],
+  volumeDown: ['тише', 'volume down'],
+  rateFaster: ['быстрее', 'speed up'],
+  rateSlower: ['медленнее', 'speed down'],
+  degreeCelsius: ['Цельсия', 'degree Celsius'],
+  degreeFahrenheit: ['Фаренгейта', 'degree Fahrenheit'],
+  updateBackground: ['Обнови', 'update'],
+  geolocation: ['Найди меня', 'find me'],
+};

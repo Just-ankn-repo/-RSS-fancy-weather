@@ -1,4 +1,5 @@
 /* global document */
+
 export default ({
   feelsLikeText: document.querySelector('.additional__feels > span:nth-child(1)'),
   windText: document.querySelector('.additional__wind > span:nth-child(1)'),
@@ -37,5 +38,28 @@ export default ({
 
   backgroundImage: document.querySelector('.background-image'),
   queryLoader: document.querySelector('.query-loader-body'),
+  pageLoader: document.querySelector('.page__loader'),
+
+  searchForm: document.querySelector('.search-form'),
+  searchInput: document.querySelector('.search-input'),
+  searchButton: document.querySelector('.search-button'),
+
+  metricUnitsButton: document.querySelector('#metric'),
+  imperialUnitsButton: document.querySelector('#imperial'),
+
+  keyboardElement: document.querySelector('.keyboard'),
+  keyboardButton: document.querySelector('.controls__virtual-keyboard'),
+
+  updateBackgroundButton: document.querySelector('.controls__update-background'),
+  changeLangSellector: document.querySelector('.controls__change-lang'),
+  findGeolocationButton: document.querySelector('.controls__find-geolocation'),
+  switchMicrophoneButton: document.querySelector('.controls__switch-microphone'),
+  enableSoundButton: document.querySelector('.controls__weather-speech'),
+  playSpeechWeatherButton: document.querySelector('.controls__weather-speech-play'),
+  stopSpeechWeatherButton: document.querySelector('.controls__weather-speech-stop'),
+  speechVolumeUpButton: document.querySelector('.controls__weather-speech-volume-up'),
+  speechVolumeDownButton: document.querySelector('.controls__weather-speech-volume-down'),
+  speechRateFasterButton: document.querySelector('.controls__weather-speech-rate-faster'),
+  speechRateSlowerButton: document.querySelector('.controls__weather-speech-rate-slower'),
   errorList: document.querySelector('.errors-list'),
 });

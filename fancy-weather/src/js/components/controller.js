@@ -1,6 +1,6 @@
 import View from './View';
 import Model from './Model';
-import utils from '../utils/index';
+import getDate from '../controllerUtils/getDate';
 import apis from '../api/index';
 
 export default class Controller {
@@ -16,8 +16,9 @@ export default class Controller {
 
   async updateUI(data) {
     let dataForRender;
+
     if (data && data !== null) {
-      const date = utils.getDate(data.lang, data.timezone, data.hemisphere);
+      const date = getDate(data.lang, data.timezone, data.hemisphere);
       dataForRender = Object.assign(data, date);
       this.lastImageQuery = `${dataForRender.dayTime} ${dataForRender.season} ${dataForRender.currentWeather.weather}`;
 

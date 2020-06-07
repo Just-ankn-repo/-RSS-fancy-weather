@@ -1,12 +1,12 @@
 import '../../css/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 import config from '../../config/env.config';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default class Mapbox {
   constructor() {
-    this.lonElement = constants.latitudeElement;
-    this.latElement = constants.longitudeElement;
+    this.lonElement = htmlElements.latitudeElement;
+    this.latElement = htmlElements.longitudeElement;
     this.mapboxgl = mapboxgl;
     this.mapboxgl.accessToken = config.mapboxToken;
     this.map = new mapboxgl.Map({

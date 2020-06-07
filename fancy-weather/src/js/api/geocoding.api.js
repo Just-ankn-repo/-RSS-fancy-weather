@@ -1,7 +1,7 @@
 /* global fetch */
 import config from '../../config/env.config';
 import globalErrors from '../utils/globalErrors';
-import geoData from '../utils/geoData';
+import geoData from '../modelUtils/geoData';
 
 async function getCoordinates(query, lang) {
   const apiUrl = config.opencageUrl;

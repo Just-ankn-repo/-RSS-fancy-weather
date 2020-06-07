@@ -1,8 +1,6 @@
 /* global window document */
-import $on from '../../viewUtils/setListener';
 
 export default (keyboard, printKey) => {
-
   const onMouseDown = (event) => {
     if (event.target.classList[0] === 'key_button') {
       event.preventDefault();
@@ -39,7 +37,7 @@ export default (keyboard, printKey) => {
   };
 
   (function onSearch() {
-    $on(document.body, 'mousedown', onMouseDown);
-    $on(window, 'mouseup', onMouseUp);
+    document.body.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
   }());
 };

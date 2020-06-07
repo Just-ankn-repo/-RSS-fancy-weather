@@ -1,7 +1,7 @@
 /* global navigator window */
 
 import apis from '../api/index';
-import utils from '../utils/index';
+import utils from '../modelUtils/index';
 import Vars from '../utils/Global.vars';
 import globalErrors from '../utils/globalErrors';
 

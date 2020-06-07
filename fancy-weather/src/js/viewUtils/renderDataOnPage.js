@@ -1,5 +1,5 @@
-import constants from './constants';
-import animatedWeather from './animatedWeather';
+import htmlElements from '../constants/htmlElements';
+import animatedWeatherIcons from '../constants/animatedWeatherIcons';
 import i18n from '../i18n/index';
 
 export default (data) => {
@@ -9,36 +9,36 @@ export default (data) => {
   else if (data.city || data.country) location = data.city || data.country;
   else location = data.lang === 'en' ? 'Somewhere here' : 'Где-то здесь';
 
-  constants.feelsLikeText.textContent = i18n[data.lang].feelsLike;
-  constants.windText.textContent = i18n[data.lang].wind;
-  constants.humidityText.textContent = i18n[data.lang].humidity;
-  constants.searchInputText.placeholder = i18n[data.lang].searchInputText;
-  constants.searchButtonText.textContent = i18n[data.lang].searchButtonText;
-  constants.latitudeText.textContent = i18n[data.lang].latitudeText;
-  constants.longitudeText.textContent = i18n[data.lang].longitudeText;
+  htmlElements.feelsLikeText.textContent = i18n[data.lang].feelsLike;
+  htmlElements.windText.textContent = i18n[data.lang].wind;
+  htmlElements.humidityText.textContent = i18n[data.lang].humidity;
+  htmlElements.searchInputText.placeholder = i18n[data.lang].searchInputText;
+  htmlElements.searchButtonText.textContent = i18n[data.lang].searchButtonText;
+  htmlElements.latitudeText.textContent = i18n[data.lang].latitudeText;
+  htmlElements.longitudeText.textContent = i18n[data.lang].longitudeText;
 
-  constants.currentCity.textContent = location;
-  constants.currentWeekDay.textContent = data.weekDay;
-  constants.currentDay.textContent = data.day;
-  constants.currentMonth.textContent = data.month;
-  constants.currentTimezone.textContent = data.timezoneOffset;
+  htmlElements.currentCity.textContent = location;
+  htmlElements.currentWeekDay.textContent = data.weekDay;
+  htmlElements.currentDay.textContent = data.day;
+  htmlElements.currentMonth.textContent = data.month;
+  htmlElements.currentTimezone.textContent = data.timezoneOffset;
 
-  constants.currentWeatherIcon.innerHTML = animatedWeather[data.currentWeather.icon];
-  constants.currentWeatherDesc.textContent = data.currentWeather.description;
-  constants.currentDegrees.textContent = data.currentWeather.temp;
-  constants.currentFeelsLike.textContent = data.currentWeather.feelsLike;
-  constants.currentWind.textContent = data.currentWeather.windSpeed;
-  constants.currentHumidity.textContent = data.currentWeather.humidity;
+  htmlElements.currentWeatherIcon.innerHTML = animatedWeatherIcons[data.currentWeather.icon];
+  htmlElements.currentWeatherDesc.textContent = data.currentWeather.description;
+  htmlElements.currentDegrees.textContent = data.currentWeather.temp;
+  htmlElements.currentFeelsLike.textContent = data.currentWeather.feelsLike;
+  htmlElements.currentWind.textContent = data.currentWeather.windSpeed;
+  htmlElements.currentHumidity.textContent = data.currentWeather.humidity;
 
-  constants.firstDayTitle.textContent = data.firstWeekDay;
-  constants.firstDayDegrees.textContent = data.forecastWeather.firstDay.temp;
-  constants.firstDayIcon.innerHTML = animatedWeather[data.forecastWeather.firstDay.icon];
+  htmlElements.firstDayTitle.textContent = data.firstWeekDay;
+  htmlElements.firstDayDegrees.textContent = data.forecastWeather.firstDay.temp;
+  htmlElements.firstDayIcon.innerHTML = animatedWeatherIcons[data.forecastWeather.firstDay.icon];
 
-  constants.secondDayTitle.textContent = data.secondWeekDay;
-  constants.secondDayDegrees.textContent = data.forecastWeather.secondDay.temp;
-  constants.secondDayIcon.innerHTML = animatedWeather[data.forecastWeather.secondDay.icon];
+  htmlElements.secondDayTitle.textContent = data.secondWeekDay;
+  htmlElements.secondDayDegrees.textContent = data.forecastWeather.secondDay.temp;
+  htmlElements.secondDayIcon.innerHTML = animatedWeatherIcons[data.forecastWeather.secondDay.icon];
 
-  constants.thirdDayTitle.textContent = data.thirdWeekDay;
-  constants.thirdDayDegrees.textContent = data.forecastWeather.thirdDay.temp;
-  constants.thirdDayIcon.innerHTML = animatedWeather[data.forecastWeather.thirdDay.icon];
+  htmlElements.thirdDayTitle.textContent = data.thirdWeekDay;
+  htmlElements.thirdDayDegrees.textContent = data.forecastWeather.thirdDay.temp;
+  htmlElements.thirdDayIcon.innerHTML = animatedWeatherIcons[data.forecastWeather.thirdDay.icon];
 };

@@ -1,4 +1,5 @@
 import handlers from './index';
+import htmlElements from '../constants/htmlElements';
 
 export default (controller, view, units, lang) => {
   handlers.onSearch(controller);
@@ -8,14 +9,15 @@ export default (controller, view, units, lang) => {
   handlers.onWeatherSpeech(view);
   handlers.onErrorButton();
   handlers.onKeyboardButton();
+  handlers.onSpeechControl(view);
 
   if (units) handlers.onUnitsChange(controller, units);
   if (lang) {
     handlers.onLangChange(controller, lang);
-    handlers.constants.changeLangSellector.value = lang;
+    htmlElements.changeLangSellector.value = lang;
   }
 
-  handlers.constants.searchInput.value = '';
-  handlers.constants.queryLoader.style.display = 'none';
-  handlers.constants.pageLoader.style.display = 'none';
+  htmlElements.searchInput.value = '';
+  htmlElements.queryLoader.style.display = 'none';
+  htmlElements.pageLoader.style.display = 'none';
 };

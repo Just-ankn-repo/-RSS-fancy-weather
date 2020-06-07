@@ -1,16 +1,14 @@
-
-import $on from '../viewUtils/setListener';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default () => {
   const errorViewed = () => {
-    constants.errorList.classList.remove('new-error');
-    constants.errorList.removeEventListener('click', errorViewed);
-    constants.errorList.setAttribute('errorList-errorViewed-click', 'false');
+    htmlElements.errorList.classList.remove('new-error');
+    htmlElements.errorList.removeEventListener('click', errorViewed);
+    htmlElements.errorList.setAttribute('errorList-errorViewed-click', 'false');
   };
 
-  if (constants.errorList.getAttribute('errorList-errorViewed-click') !== 'true') {
-    $on(constants.errorList, 'click', errorViewed);
-    constants.errorList.setAttribute('errorList-errorViewed-click', 'true');
+  if (htmlElements.errorList.getAttribute('errorList-errorViewed-click') !== 'true') {
+    htmlElements.errorList.addEventListener('click', errorViewed);
+    htmlElements.errorList.setAttribute('errorList-errorViewed-click', 'true');
   }
 };

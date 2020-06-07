@@ -1,24 +1,23 @@
-import $on from '../viewUtils/setListener';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default (view) => {
   const listen = () => {
-    const isActive = constants.switchMicrophoneButton.classList.contains('active');
+    const isActive = htmlElements.switchMicrophoneButton.classList.contains('active');
 
-    constants.switchMicrophoneButton.removeEventListener('click', listen);
-    constants.switchMicrophoneButton.setAttribute('switchMicrophoneButton-listen-click', 'false');
+    htmlElements.switchMicrophoneButton.removeEventListener('click', listen);
+    htmlElements.switchMicrophoneButton.setAttribute('switchMicrophoneButton-listen-click', 'false');
 
     if (isActive) {
-      constants.switchMicrophoneButton.classList.remove('active');
+      htmlElements.switchMicrophoneButton.classList.remove('active');
     } else {
-      constants.switchMicrophoneButton.classList.add('active');
+      htmlElements.switchMicrophoneButton.classList.add('active');
     }
 
     view.speechRecognition(!isActive);
   };
 
-  if (constants.switchMicrophoneButton.getAttribute('switchMicrophoneButton-listen-click') !== 'true') {
-    $on(constants.switchMicrophoneButton, 'click', listen);
-    constants.switchMicrophoneButton.setAttribute('switchMicrophoneButton-listen-click', 'true');
+  if (htmlElements.switchMicrophoneButton.getAttribute('switchMicrophoneButton-listen-click') !== 'true') {
+    htmlElements.switchMicrophoneButton.addEventListener('click', listen);
+    htmlElements.switchMicrophoneButton.setAttribute('switchMicrophoneButton-listen-click', 'true');
   }
 };

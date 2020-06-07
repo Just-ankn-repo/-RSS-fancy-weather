@@ -1,20 +1,19 @@
-import $on from '../viewUtils/setListener';
-import constants from './constants';
+import htmlElements from '../constants/htmlElements';
 
 export default () => {
   const keyboardVisible = () => {
-    if (constants.keyboardElement.classList.contains('active')) {
-      constants.keyboardElement.classList.remove('active');
-      constants.keyboardButton.classList.remove('active');
+    if (htmlElements.keyboardElement.classList.contains('active')) {
+      htmlElements.keyboardElement.classList.remove('active');
+      htmlElements.keyboardButton.classList.remove('active');
     } else {
-      constants.keyboardElement.style.display = 'block';
-      constants.keyboardElement.classList.add('active');
-      constants.keyboardButton.classList.add('active');
+      htmlElements.keyboardElement.style.display = 'block';
+      htmlElements.keyboardElement.classList.add('active');
+      htmlElements.keyboardButton.classList.add('active');
     }
   };
 
-  if (constants.changeLangSellector.getAttribute('keyboardButton-keyboardVisible-click') !== 'true') {
-    $on(constants.keyboardButton, 'click', keyboardVisible);
-    constants.changeLangSellector.setAttribute('keyboardButton-keyboardVisible-click', 'true');
+  if (htmlElements.changeLangSellector.getAttribute('keyboardButton-keyboardVisible-click') !== 'true') {
+    htmlElements.keyboardButton.addEventListener('click', keyboardVisible);
+    htmlElements.changeLangSellector.setAttribute('keyboardButton-keyboardVisible-click', 'true');
   }
 };
