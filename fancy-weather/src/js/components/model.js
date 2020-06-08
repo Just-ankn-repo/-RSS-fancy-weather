@@ -14,23 +14,17 @@ export default class Model {
   }
 
   async getWeatherForPlace(place) {
-    const vars = this.vars.getVars();
-    let geoData;
-    let weather;
-
     try {
-      geoData = await utils.getLocation(place || null, vars.lang);
-      weather = await apis.weather(geoData.lat, geoData.lon, vars.lang, vars.units);
+      const vars = this.vars.getVars();
+      const geoData = await utils.getLocation(place || null, vars.lang);
+      const weatherData = await apis.weather(geoData.lat, geoData.lon, vars.lang, vars.units);
+      const weatherAndGeoData = Object.assign(geoData, vars, weatherData);
+      this.lastPlace = place || `${geoData.city}, ${geoData.country}`;
+
+      this.controller.updateUI(weatherAndGeoData);
     } catch (e) {
       globalErrors(e);
       this.controller.updateUI(null);
-    }
-
-    if (geoData && weather) {
-      const weatherData = utils.weatherData(weather);
-      const weatherAndGeoData = Object.assign(geoData, vars, weatherData);
-      this.lastPlace = place || `${geoData.city}, ${geoData.country}`;
-      this.controller.updateUI(weatherAndGeoData);
     }
   }
 
