@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 import fetchMock from 'jest-fetch-mock';
+import 'jest-date-mock';
 
 fetchMock.enableMocks();
