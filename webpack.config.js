@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -157,13 +157,13 @@ const config = {
     overlay: true,
     stats: 'errors-only',
     clientLogLevel: 'none'
-  }
+  },
 }
 
 if (isProd) {
-  config.plugins.push(
-    new UglifyJSPlugin(),
-  );
+  config.optimization = {
+      minimize: true
+    }
 };
 
 module.exports = config;
