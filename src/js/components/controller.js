@@ -1,5 +1,5 @@
-import View from './View';
-import Model from './Model';
+import View from './view';
+import Model from './model';
 import getDate from '../controllerUtils/getDate';
 import apis from '../api/index';
 

@@ -1,10 +1,9 @@
 import renderDataOnPage from './renderDataOnPage';
-import Mapbox from './Mapbox';
-import Clock from './Clock';
+import Mapbox from './mapbox';
+import Clock from './clock';
 import updateBackground from './updateBackground';
-import SpeechSynthesis from './SpeechSynthesis';
+import SpeechSynthesis from './speechSynthesis';
 import SpeechRecognition from './SpeechRecognition';
-
 
 export default {
   renderDataOnPage,
