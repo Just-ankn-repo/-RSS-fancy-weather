@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <title>Fancy Weather</title>
+    <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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">
+    <link rel="stylesheet" href="style.css" />
+  <link href="style.css" rel="stylesheet"></head>
+  <body>
+    <div class="page__loader" id="page-loader">
+      <div class="loader__spinner">
+        <div class="loader__cloud"></div>
+      </div>
+      <div class="loader__text">Fancy Weather</div>
+    </div>
+    <div class="query-loader-body">
+      <div class="query-loader-item"></div>
+    </div>
+    <div class="shadow"></div>
+    <img class="background-image"></img>
+
+    <header class="app__header">
+      <section class="header__section-left">
+        <div class="controls__wrapper">
+          <div class="controls__update-background default-button"><div></div></div>
+          <select class="controls__change-lang">
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="be">BE</option>
+          </select>
+          <div class="controls__change-units">
+            <div id="imperial">&#8457;</div>
+            <div id="metric">&#8451;</div>
+          </div>
+          <div class="controls__find-geolocation default-button"><div></div></div>
+          <div class="controls__virtual-keyboard default-button"><div></div></div>
+          <div class="controls__switch-microphone default-button"><div></div></div>
+          <div class="controls__weather-speech default-button"><div></div></div>
+          <div class="controls__weather-speech-play" style="display:none;"><div></div></div>
+          <div class="controls__weather-speech-stop" style="display:none;"><div></div></div>
+          <div class="controls__weather-speech-volume-up" style="display:none;"><div></div></div>
+          <div class="controls__weather-speech-volume-down" style="display:none;"><div></div></div>
+          <div class="controls__weather-speech-rate-faster" style="display:none;"><div></div></div>
+          <div class="controls__weather-speech-rate-slower" style="display:none;"><div></div></div>
+          <div class="controls__error-box default-button">
+            <select class="errors-list">
+              <option></option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <section class="header__section-right">
+        <form class="search-form">
+          <input class="search-input" type="search" placeholder="" autocomplete="off" autofill="off" spellcheck="false"></input>
+          <button class="search-button"></button>
+        </form>
+      </section>
+    </header>
+    <main class="app__body">
+      <div class="weather__current-city"></div>
+      <section class="body__section">
+        <div class="weather">
+          <div class="weather__current">
+            <div class="weather__current-datetime">
+              <div class="current-datetime__date">
+                <div class="current-datetime__weekday"></div>
+                <div class="current-datetime__monthday"></div>
+                <div class="current-datetime__month"></div>
+              </div>
+              <div class="current-datetime__time"></div>
+              <div class="current-datetime__timezone"></div>
+            </div>
+            <div class="weather__current-weather">
+              <div class="current-weather__degrees"><span></span><span>&deg;</span></div>
+              <div class="current-weather__additional">
+                <div class="additional__weather-icon"></div>
+                <div class="additional__description"></div>
+                <div class="additional__feels"><span></span><span></span><span>&deg;</span></div>
+                <div class="additional__wind"><span></span><span></span></div>
+                <div class="additional__humidity"><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="weather__forecast-weather">
+            <div class="forecast-weather__day">
+              <div class="day__title first-forecast-day-title"></div>
+              <div class="day__weather">
+                <div class="day__degrees first-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <div class="day__weather-icon first-forecast-day-icon"></div>
+              </div>
+            </div>
+            <div class="forecast-weather__day">
+              <div class="day__title second-forecast-day-title"></div>
+              <div class="day__weather">
+                <div class="day__degrees second-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <div class="day__weather-icon second-forecast-day-icon"></div>
+              </div>
+            </div>
+            <div class="forecast-weather__day">
+              <div class="day__title third-forecast-day-title"></div>
+              <div class="day__weather">
+                <div class="day__degrees third-forecast-day-degrees"><span></span><span>&deg;</span></div>
+                <div class="day__weather-icon third-forecast-day-icon"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="location-map">
+          <div id="map"></div>
+          <div class="map__latitude"><span></span><span></span></div>
+          <div class="map__longtitude"><span></span><span></span></div>
+        </div>
+      </section>
+      <section class="page__keyboard" id="page-keyboard">
+        <div class="keyboard"></div>
+      </section>
+    </main>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-base">
+      <defs>
+       <radialGradient id="gradYellow" cx="50%" cy="50%" r="80%" fx="90%" fy="80%">
+         <stop offset="0%" style="stop-color:yellow; stop-opacity:1" />
+         <stop offset="100%" style="stop-color:orange ;stop-opacity:1" />
+       </radialGradient>
+       <radialGradient id="gradDarkGray" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+         <stop offset="0%" style="stop-color:white; stop-opacity:1" />
+         <stop offset="70%" style="stop-color:gray; stop-opacity:1" />
+         <stop offset="100%" style="stop-color:dimgray ;stop-opacity:1" />
+       </radialGradient>
+       <radialGradient id="gradGray" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+         <stop offset="0%" style="stop-color:white; stop-opacity:1" />
+         <stop offset="100%" style="stop-color:darkgray ;stop-opacity:1" />
+       </radialGradient>
+       <linearGradient id="gradWhite" x1="40%" y1="50%" x2="90%" y2="90%">
+         <stop offset="0%" style="stop-color:white;stop-opacity:1" />
+         <stop offset="100%" style="stop-color:darkgray;stop-opacity:1" />
+       </linearGradient>     
+     </defs>
+     
+       <!-- Sun -->
+     <symbol id="sun">
+       <!-- center -->
+       <circle cx="50" cy="50" r="20" fill="url(#gradYellow)" />
+   
+       <!-- long rays -->
+       <line x1="50" y1="27" x2="50" y2="2" class="longRay" />
+       <line x1="50" y1="73" x2="50" y2="98" class="longRay" />
+       <line x1="27" y1="50" x2="2" y2="50" class="longRay" />
+       <line x1="73" y1="50" x2="98" y2="50" class="longRay" />
+       <line x1="34" y1="34" x2="16" y2="16" class="longRay" />
+       <line x1="66" y1="66" x2="84" y2="84" class="longRay" />
+       <line x1="34" y1="66" x2="16" y2="84" class="longRay" />
+       <line x1="66" y1="34" x2="84" y2="16" class="longRay" />
+   
+       <!-- short rays -->
+       <line x1="59" y1="29" x2="66" y2="13" class="shortRay"/>
+       <line x1="71" y1="42" x2="87" y2="35" class="shortRay" />
+       <line x1="71" y1="58.5" x2="87" y2="65" class="shortRay" />
+       <line x1="59" y1="71" x2="66" y2="87" class="shortRay" />
+       <line x1="41" y1="71" x2="34" y2="87" class="shortRay" />
+       <line x1="29.5" y1="58.5" x2="13" y2="66" class="shortRay" />
+       <line x1="29" y1="42" x2="13" y2="35" class="shortRay" />
+       <line x1="41" y1="29" x2="35" y2="13" class="shortRay" />
+     </symbol>
+     
+     <!-- Moon -->
+     <symbol id="moon">
+       <path d="M60,20 A30,30 0 1,0 90,65 22,22 0 1,1 60,20z" fill="url(#gradYellow)"/>
+     </symbol>
+   
+     <!-- Star -->
+     <symbol id="star">
+       <polygon points="5,0 2,10 10,4 0,4 8,10" style="fill:url(#gradYellow);fill-rule:nonzero;"/>
+     </symbol>
+       
+     <!-- Small Gray Cloud -->
+     <symbol id="grayCloud">
+       <path  d="M20,15 Q25,0 45,11 Q60,5 60,20 A30,15 5 1,1 20,15 Z" />
+     </symbol>
+     
+     <!-- White Cloud -->
+     <symbol id="whiteCloud">
+       <path fill="url(#gradWhite)" d="M11,47 Q13,37 21,42 Q31,30 41,38 A28,21 -25 1,1 35,75 Q23,85 19,73 A12,12 0 0,1 11,47Z" />
+     </symbol>
+     
+     <!-- Rain Drop -->
+     <symbol id="rainDrop">
+       <path fill="lightblue" d="M10 0 Q10,0 14,7 A5,5 0 1,1 6,7 Q10,0 10,0Z" />
+     </symbol>
+   
+     <!-- Rain Drizzle -->
+     <symbol id="rainDrizzle">
+       <line x1="20" y1="2" x2="10" y2="40" />
+     </symbol>
+   
+     <!-- Thunder Bolt -->
+     <symbol id="thunderBolt">
+       <path fill="black" d="M15,0 L1,23 L8,23 L0,40 L15,19 L8,19Z" />
+     </symbol>
+   
+     <!-- Snow Flake -->
+     <symbol id="snowFlake">
+       <path d="M5,0 L5,10 M0,5 L10,5 M1.5,1.5 L8.5,8.5 M8.5,1.5 L1.5,8.5" />
+       <path d="M3.5,0.25 L5,2 L6.5,0.25 M3.5,9.75 L5,8 L6.5,9.75" />
+       <path d="M0.25,3.5 L2,5 L0.25,6.5 M9.75,3.5 L8,5 L9.75,6.5" />
+       <path d="M0.75,2.90 L2.85,2.85 L2.90,0.75 M7.25,9.35 L7.15,7.15 L9.35,7.25" />
+       <path d="M0.75,7.25 L2.85,7.15 L2.90,9.35 M7.15,0.75 L7.25,2.85 L9.35,2.90" />
+     </symbol>
+   
+     <!-- Hail/Ice Pellet-->
+     <symbol id="icePellet">
+       <circle cx="4" cy="4" r="4" fill="#e3fcff" />
+     </symbol>
+   
+     <!-- Mist -->
+     <symbol id="mist">
+       <path d="M5,34 L43,34" />
+       <path d="M10,40 L40,40 Q51.5,40 50,35 T60,30 L80,30" />
+       <path d="M15,45 L45,45 Q56.5,45 55,40 T65,35 L90,35" />
+       <path d="M60,42 L85,42" />
+     </symbol>
+     
+   </svg>
+  <script type="text/javascript" src="index.js"></script></body>
+</html>
